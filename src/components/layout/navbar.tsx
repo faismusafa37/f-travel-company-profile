@@ -99,33 +99,7 @@ export function Navbar({ lang = "id", dict }: { lang?: "id" | "en", dict?: any }
                     Contact Us
                   </Button>
                 </Link>
-                {session ? (
-                  <>
-                    <Link href="/admin" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full border-slate-350 text-slate-700 hover:bg-slate-50">
-                        Dashboard
-                      </Button>
-                    </Link>
-                    <Button
-                      variant="default"
-                      onClick={() => {
-                        setIsOpen(false);
-                        signOut({ callbackUrl: "/" });
-                      }}
-                      className="w-full flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white"
-                    >
-                      <LogOut className="w-4 h-4" />
-                      <span>Logout</span>
-                    </Button>
-                  </>
-                ) : (
-                  <Link href="/admin/login" onClick={() => setIsOpen(false)}>
-                    <Button variant="default" className="w-full flex items-center justify-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white">
-                      <LogIn className="w-4 h-4" />
-                      <span>Login</span>
-                    </Button>
-                  </Link>
-                )}
+
               </div>
             </div>
           </motion.div>

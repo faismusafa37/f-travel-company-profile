@@ -95,7 +95,7 @@ export function Footer({ settings = {}, lang = "id", dict }: { settings?: Record
             <ul className="space-y-4 text-slate-400 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
-                <span>{settings.address || "Sudirman Central Business District, South Jakarta, Indonesia"}</span>
+                <span>{settings.address || "No.1 A, Jl. Cantel Baru, Semaki, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55166"}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-500 shrink-0" />

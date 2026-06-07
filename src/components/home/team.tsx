@@ -71,15 +71,16 @@ export function OurTeam({ members = [], dict }: { members?: MemberProp[], dict?:
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
+    visible: (index: number) => ({
       opacity: 1,
       y: 0,
       transition: {
         type: "spring" as const,
         stiffness: 100,
         damping: 18,
+        delay: (index % 4) * 0.1,
       },
-    },
+    }),
   };
 
   const renderMemberCard = (member: MemberProp, index: number, isSlider: boolean = false) => {
@@ -130,7 +131,11 @@ export function OurTeam({ members = [], dict }: { members?: MemberProp[], dict?:
     return (
       <motion.div
         key={`${member.id}-${index}`}
+        custom={index}
         variants={itemVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
         className="group flex flex-col w-full"
       >
         {cardContent}
@@ -156,28 +161,31 @@ export function OurTeam({ members = [], dict }: { members?: MemberProp[], dict?:
         </div>
 
         {/* Team Grid or Slider */}
-        {displayMembers.length <= 4 ? (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {displayMembers.map((member, i) => renderMemberCard(member, i, false))}
-          </motion.div>
-        ) : (
-          <div className="relative flex overflow-hidden py-4 mask-gradient max-w-[100vw] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-            <div 
-              className="flex flex-row flex-nowrap w-max gap-8 hover:[animation-play-state:paused] cursor-pointer"
-              style={{ animation: 'marquee-left 50s linear infinite' }}
-            >
-              {[...displayMembers, ...displayMembers].map((member, i) => 
-                renderMemberCard(member, i, true)
-              )}
+
+        {/* Mobile & Tablet: Always Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
+          {displayMembers.map((member, i) => renderMemberCard(member, i, false))}
+        </div>
+
+        {/* Desktop: Grid if <= 4, Slider if > 4 */}
+        <div className="hidden lg:block">
+          {displayMembers.length <= 4 ? (
+            <div className="grid lg:grid-cols-4 gap-8">
+              {displayMembers.map((member, i) => renderMemberCard(member, i, false))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="relative flex overflow-hidden py-4 mask-gradient max-w-[100vw] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+              <div 
+                className="flex flex-row flex-nowrap w-max gap-8 hover:[animation-play-state:paused] cursor-pointer"
+                style={{ animation: 'marquee-left 50s linear infinite' }}
+              >
+                {[...displayMembers, ...displayMembers].map((member, i) => 
+                  renderMemberCard(member, i, true)
+                )}
+              </div>
+            </div>
+          )}
+        </div>
 
       </div>
     </section>
