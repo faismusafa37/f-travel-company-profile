@@ -101,7 +101,7 @@ export async function createInquiryAction(data: z.infer<typeof inquirySchema>) {
           <div class="container">
             <!-- Banner -->
             <div class="banner">
-              <img src="cid:ftravel-logo" alt="F-Travel Logo" class="logo" />
+              <img src="https://f-travel.id/logo.png" alt="F-Travel Logo" class="logo" />
               <h1 class="banner-title">NEW INQUIRY, <br><span>RECEIVED.</span></h1>
               <p class="banner-subtitle">F-Travel automated notification system.</p>
             </div>

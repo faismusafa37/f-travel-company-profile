@@ -48,7 +48,7 @@ export function Navbar({ lang = "id", dict }: { lang?: "id" | "en", dict?: any }
             ))}
           </nav>
         </div>
-        
+
         {/* Desktop Contact Us & Login buttons */}
         <div className="hidden md:flex items-center justify-end space-x-3">
           <LanguageSwitcher currentLang={lang} />
@@ -57,30 +57,6 @@ export function Navbar({ lang = "id", dict }: { lang?: "id" | "en", dict?: any }
               {d.contact}
             </Button>
           </Link>
-          {session ? (
-            <>
-              <Link href="/admin">
-                <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
-                  {d.dashboard}
-                </Button>
-              </Link>
-              <Button 
-                variant="default" 
-                onClick={() => signOut({ callbackUrl: "/" })}
-                className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>{d.logout}</span>
-              </Button>
-            </>
-          ) : (
-            <Link href="/admin/login" className="flex items-center">
-              <Button variant="default" className="flex items-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white">
-                <LogIn className="w-4 h-4" />
-                <span>{d.login}</span>
-              </Button>
-            </Link>
-          )}
         </div>
 
         {/* Mobile menu button */}
@@ -130,8 +106,8 @@ export function Navbar({ lang = "id", dict }: { lang?: "id" | "en", dict?: any }
                         Dashboard
                       </Button>
                     </Link>
-                    <Button 
-                      variant="default" 
+                    <Button
+                      variant="default"
                       onClick={() => {
                         setIsOpen(false);
                         signOut({ callbackUrl: "/" });
