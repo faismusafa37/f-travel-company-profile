@@ -230,7 +230,7 @@ export function Hero({
           {/* Stat 1 */}
           <motion.div variants={statItemVariants} className="bg-white text-slate-950 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-slate-100 flex flex-col justify-center items-center text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-1">
-              <StatCounter text={stats.customers} />
+              <StatCounter text={stats.customers || "0"} />
             </h3>
             <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-wide">Total Customers</p>
           </motion.div>
@@ -238,7 +238,7 @@ export function Hero({
           {/* Stat 2 */}
           <motion.div variants={statItemVariants} className="bg-white text-slate-950 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-slate-100 flex flex-col justify-center items-center text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-1">
-              <StatCounter text={stats.experienceYears} />
+              <StatCounter text={stats.experienceYears || "0"} />
             </h3>
             <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-wide">Years Of Experience</p>
           </motion.div>
@@ -246,7 +246,7 @@ export function Hero({
           {/* Stat 3 */}
           <motion.div variants={statItemVariants} className="bg-white text-slate-950 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-slate-100 flex flex-col justify-center items-center text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-1">
-              <StatCounter text={stats.destinations} />
+              <StatCounter text={stats.destinations || "0"} />
             </h3>
             <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-wide">Total Destinations</p>
           </motion.div>
@@ -255,7 +255,7 @@ export function Hero({
           <motion.div variants={statItemVariants} className="bg-white text-slate-950 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-slate-100 flex flex-col justify-center items-center text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <div className="flex items-center space-x-1 mb-1 justify-center">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
-                <StatCounter text={stats.rating} />
+                <StatCounter text={stats.rating || "0"} />
               </h3>
               <Star className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500 fill-amber-500 shrink-0" />
             </div>
