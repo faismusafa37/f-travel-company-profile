@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Destination {
+  id            String          @id @default(cuid())
+  title         String
+  slug          String          @unique
+  country       String
+  city          String
+  description   String
+  featuredImage String?
+  gallery       GalleryImage[]
+  category      String?
+  status        String          @default("DRAFT") // PUBLISHED, DRAFT
+  packages      TravelPackage[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model TravelPackage {
+  id               String       @id @default(cuid())
+  title            String
+  slug             String       @unique
+  destinationId    String
+  destination      Destination  @relation(fields: [destinationId], references: [id])
+  price            Decimal
+  duration         Int          // Number of days
+  shortDescription String
+  fullDescription  String
+  itinerary        String // JSON or Text
+  included         String // JSON or Text
+  excluded         String // JSON or Text
+  featuredImage    String?
+  gallery          GalleryImage[]
+  status           String       @default("DRAFT") // PUBLISHED, DRAFT
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+model BlogCategory {
+  id        String     @id @default(cuid())
+  name      String
+  slug      String     @unique
+  posts     BlogPost[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model BlogPost {
+  id             String       @id @default(cuid())
+  title          String
+  slug           String       @unique
+  excerpt        String
+  content        String
+  featuredImage  String?
+  categoryId     String
+  category       BlogCategory @relation(fields: [categoryId], references: [id])
+  tags           String?
+  status         String       @default("DRAFT") // PUBLISHED, DRAFT
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model GalleryImage {
+  id              String         @id @default(cuid())
+  url             String
+  alt             String?
+  category        String?
+  destinationId   String?
+  destination     Destination?   @relation(fields: [destinationId], references: [id], onDelete: SetNull)
+  travelPackageId String?
+  travelPackage   TravelPackage? @relation(fields: [travelPackageId], references: [id], onDelete: SetNull)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  clientName  String
+  clientRole  String?
+  clientImage String?
+  company     String?
+  trip        String?
+  content     String
+  rating      Int      @default(5)
+  status      String   @default("PUBLISHED") // PUBLISHED, DRAFT
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String?
+  logoText  String?
+  bgColor   String?
+  textColor String?
+  order     Int      @default(0)
+  status    String   @default("PUBLISHED")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  quote     String
+  image     String
+  order     Int      @default(0)
+  status    String   @default("PUBLISHED")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PortfolioProject {
+  id        String   @id @default(cuid())
+  client    String
+  activity  String
+  location  String
+  category  String
+  original  String
+  year      String
+  status    String   @default("PUBLISHED")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  status    String   @default("NEW") // NEW, READ, RESPONDED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSetting {
+  id             String   @id @default(cuid())
+  key            String   @unique
+  value          String
+  updatedAt      DateTime @updatedAt
+}
+
+model WebsiteVisit {
+  id        String   @id @default(cuid())
+  sessionId String
+  path      String
+  country   String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
+}

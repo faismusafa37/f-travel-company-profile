@@ -1,0 +1,290 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "portfolio": "Portofolio",
+    "gallery": "Galeri",
+    "blog": "Blog",
+    "contact": "Hubungi Kami",
+    "dashboard": "Dasbor",
+    "login": "Masuk",
+    "logout": "Keluar"
+  },
+  "footer": {
+    "quickLinks": "Tautan Cepat",
+    "getInTouch": "Hubungi Kami",
+    "newsletter": "Berlangganan",
+    "newsletterDesc": "Berlangganan untuk mendapatkan paket spesial, pembaruan destinasi, dan panduan wisata.",
+    "emailPlaceholder": "Alamat email Anda"
+  },
+  "home": {
+    "featuredDestinations": "Destinasi Unggulan",
+    "featuredDestinationsDesc": "Temukan tempat wisata paling populer kami di seluruh dunia.",
+    "viewAll": "Lihat semua",
+    "readyToStart": "Siap memulai petualangan Anda?",
+    "contactUsToday": "Hubungi kami hari ini dan biarkan para ahli kami merencanakan perjalanan sempurna yang disesuaikan untuk Anda.",
+    "contactUsNow": "Hubungi Sekarang"
+  },
+  "services": {
+    "subtitle": "Apa Yang Kami Lakukan",
+    "title": "Layanan Kami",
+    "description": "Kami memberikan solusi yang dirancang khusus untuk menyatukan tim, mengadakan acara perusahaan yang luar biasa, dan menciptakan petualangan mendebarkan yang menginspirasi.",
+    "list": [
+      {
+        "title": "Perencanaan Acara",
+        "tag": "Perusahaan & Sosial",
+        "description": "Merancang dan mengelola berbagai acara mulai dari rapat, pelatihan, lokakarya, makan malam intim, dan makan malam gala hingga pesta perpisahan, dengan sentuhan profesional dan berkesan."
+      },
+      {
+        "title": "Outing Perusahaan & Gathering",
+        "tag": "Perjalanan Kebersamaan",
+        "description": "Memberikan perjalanan menyenangkan di berbagai destinasi dengan aktivitas yang menumbuhkan kebersamaan. Setiap momen dirancang untuk menjadi pengalaman berharga dan tak terlupakan."
+      },
+      {
+        "title": "Team Building & Outbound",
+        "tag": "Sinergi Tim",
+        "description": "Membangun kerja sama tim dan kolaborasi melalui program interaktif yang disesuaikan dengan kebutuhan tim Anda. Menyenangkan, bermakna, dan dirancang untuk memperkuat ikatan profesional."
+      },
+      {
+        "title": "Pengalaman Petualangan Seru",
+        "tag": "Pacu Adrenalin",
+        "description": "Menyediakan pengalaman penuh adrenalin dan mendebarkan melalui petualangan offroad, arung jeram, ATV, trekking, dan aktivitas luar ruangan menantang lainnya."
+      }
+    ]
+  },
+  "experiences": {
+    "subtitle": "Pengalaman yang Disesuaikan",
+    "title": "Pengalaman yang Dibuat untuk Setiap Kesempatan",
+    "description": "Baik itu gathering perusahaan, makan malam gala, tur edukasi, atau liburan keluarga, F-Travel menciptakan pengalaman yang meninggalkan kesan mendalam.",
+    "list": [
+      {
+        "title": "Outing Perusahaan",
+        "tag": "Perjalanan Bisnis",
+        "description": "Destinasi inspiratif dan perencanaan mulus untuk mengisi ulang energi tim Anda, menumbuhkan kreativitas dan perspektif segar."
+      },
+      {
+        "title": "Gathering Keluarga",
+        "tag": "Keluarga & Liburan",
+        "description": "Reuni yang menghangatkan hati dan aktivitas antargenerasi, menciptakan kenangan berharga dan kesenangan bagi seluruh keluarga."
+      },
+      {
+        "title": "Team Building Seru",
+        "tag": "Sinergi Tim",
+        "description": "Icebreaker penuh aksi, permainan interaktif, dan tantangan kolaboratif yang dirancang untuk membangun kepercayaan dan memperkuat ikatan."
+      },
+      {
+        "title": "Acara Gala & Makan Malam",
+        "tag": "Perayaan & Pencapaian",
+        "description": "Makan malam istimewa, pementasan tematik yang indah, dan penyelenggaraan sempurna untuk merayakan pencapaian perusahaan Anda dengan gaya."
+      },
+      {
+        "title": "MICE & Pertemuan Tingkat Tinggi",
+        "tag": "Eksekutif & Bisnis",
+        "description": "Pengaturan profesional, logistik audiovisual kelas atas, dan pelaksanaan yang lancar untuk konferensi eksekutif dan pertemuan tingkat tinggi."
+      },
+      {
+        "title": "Manajemen Pertunjukan Acara",
+        "tag": "Produksi Langsung",
+        "description": "Produksi langsung berskala penuh, koreografi, pencahayaan, penyutradaraan, dan sinkronisasi panggung untuk acara besar dan hiburan."
+      }
+    ]
+  },
+  "team": {
+    "subtitle": "Temui Para Ahli",
+    "title": "Tim Kami",
+    "description": "Orang-orang bersemangat di balik setiap perjalanan sukses dan pertemuan perusahaan di F-Travel.",
+    "list": [
+      {
+        "name": "Wahyu Prabowo",
+        "role": "Chief Executive Officer",
+        "quote": "Berpengalaman mengelola lebih dari 100 acara di seluruh Indonesia."
+      },
+      {
+        "name": "Wiwit Novia Susanti",
+        "role": "Managing Director",
+        "quote": "Memastikan F-Travel berjalan efisien dan memberikan layanan terbaik."
+      },
+      {
+        "name": "Farras Alaydrus",
+        "role": "Koordinator Acara",
+        "quote": "Khusus dalam merencanakan dan mengatur acara."
+      },
+      {
+        "name": "Fajri Alaydrus",
+        "role": "Koordinator Pemimpin Tur",
+        "quote": "Berkomitmen untuk membuat setiap perjalanan berjalan sempurna."
+      }
+    ]
+  },
+  "clients": {
+    "title": "Klien Kami",
+    "description": "Brand-brand berpikiran maju mempercayai F-Travel untuk memberikan perjalanan yang luar biasa. Kami bermitra dengan perusahaan terkemuka untuk memberikan pengalaman perjalanan terbaik bagi Anda."
+  },
+  "testimonials": {
+    "subtitle": "Kisah Sukses",
+    "title": "Apa Kata Klien Kami",
+    "description": "Baca kisah nyata dari outing perusahaan dan gathering yang dikelola oleh F-Travel di berbagai destinasi terbaik."
+  },
+  "about": {
+    "mission": {
+      "tag": "Misi Kami",
+      "title": "Menciptakan Perjalanan yang Menginspirasi",
+      "points": [
+        "Memberikan kualitas layanan yang luar biasa.",
+        "Menyesuaikan solusi dengan kebutuhan unik klien.",
+        "Memastikan keamanan dan kenyamanan setiap saat.",
+        "Membangun kemitraan jangka panjang berdasarkan kepercayaan."
+      ],
+      "description": "Menjadi mitra perjalanan terpercaya yang memahami tujuan unik setiap pelanggan, merangkai pengalaman yang berkesan dan bernilai di setiap momen kebersamaan yang dibagikan bersama tim kami."
+    },
+    "vision": {
+      "tag": "Visi Kami",
+      "title": "Penyedia Layanan Perjalanan Unggulan",
+      "points": [
+        "Menjadi pilihan utama untuk perjalanan perusahaan.",
+        "Terus berinovasi dalam penawaran layanan kami.",
+        "Memperluas jangkauan global kami dengan keahlian lokal."
+      ],
+      "description": "F-Travel berkomitmen untuk menyediakan layanan perjalanan dan acara yang nyaman, aman, dan menyenangkan melalui tim yang profesional dan berpengalaman. Kami menyajikan berbagai macam tur, outing perusahaan, team building, dan program khusus yang beragam, terjangkau, dan berkesan bagi setiap pelanggan."
+    },
+    "hero": {
+      "subtitle": "Kenali Kami",
+      "title": "Tentang F-Travel",
+      "description": "Penyelenggara Tur, Konsultan Perjalanan, dan Perencana Acara yang berdedikasi untuk merancang perjalanan global yang tak terlupakan."
+    },
+    "quote": "\"Menghubungkan orang dengan keindahan dunia dan merajut kebersamaan melalui perjalanan yang aman, terencana dengan baik, dan berkesan.\"",
+    "features": [
+      "100% Legal & Terdaftar Resmi",
+      "Berbasis di Yogyakarta",
+      "Kemitraan Luas (BUMN, Perusahaan & Personal)"
+    ],
+    "profileTag": "Profil Perusahaan",
+    "whyChooseUs": {
+      "items": [
+        {
+          "title": "Keamanan & Legalitas",
+          "desc": "Beroperasi di bawah entitas hukum resmi PT Dua Rasi Nusantara, memastikan transaksi dan perjalanan Anda aman dan terlindungi secara hukum."
+        },
+        {
+          "title": "Tim Berpengalaman",
+          "desc": "Didukung oleh Tour Leader dan Event Planner profesional yang menguasai lapangan, memastikan kenyamanan maksimal dan kelancaran eksekusi di lokasi."
+        },
+        {
+          "title": "Program Fleksibel",
+          "desc": "Dari persyaratan anggaran hingga detail rencana perjalanan, semuanya dapat disesuaikan secara fleksibel untuk memenuhi kebutuhan operasional unik tim Anda."
+        }
+      ]
+    },
+    "legal": {
+      "title": "Kredensial Legalitas Perusahaan",
+      "badge": "Resmi & Berlisensi",
+      "description": "F-Travel resmi berada di bawah payung hukum {legalName} dan terdaftar sebagai badan usaha yang sah. Kami berlisensi penuh dan sangat berkomitmen untuk memberikan pengalaman dan perlindungan hukum terbaik untuk setiap transaksi dan perjalanan klien kami.",
+      "fields": {
+        "entityName": "Nama Badan Hukum",
+        "brandName": "Nama Merek",
+        "decree": "SK Kemenkumham",
+        "nib": "Nomor Induk Berusaha (NIB)",
+        "cert": "Sertifikat Standar Operasional"
+      }
+    },
+    "title": "Profesionalisme Tinggi dengan Sentuhan Personal",
+    "desc1": "F-Travel adalah Tour Organizer, Konsultan Perjalanan, dan Perencana Acara berbasis di Yogyakarta yang memberikan layanan perjalanan dengan standar profesional dan sentuhan personal. Berbekal pengalaman luas dalam pariwisata domestik dan internasional, serta Acara Perusahaan seperti Rapat, Gathering, perjalanan Outbound, dan program minat khusus, kami dipercaya oleh berbagai klien dari perusahaan swasta, BUMN, hingga pelancong perorangan.",
+    "desc2": "Kami memahami bahwa setiap perjalanan membawa cerita dan tujuannya masing-masing. Oleh karena itu, dengan komitmen kuat terhadap kualitas, fleksibilitas, dan kreativitas, F-Travel selalu siap memberikan pengalaman terbaik dan tak terlupakan di setiap perjalanan yang kami rancang."
+  },
+  "contact": {
+    "hero": {
+      "title": "Hubungi Kami",
+      "description": "Punya pertanyaan atau siap merencanakan acara Anda berikutnya? Kami ingin mendengar dari Anda."
+    },
+    "sections": {
+      "form": "Kirim Pesan",
+      "info": "Informasi Kontak"
+    },
+    "fields": {
+      "address": "Alamat",
+      "phone": "Telepon",
+      "phoneDetail": "Senin-Jumat, 09.00 - 17.00 WIB",
+      "email": "Email",
+      "emailDetail": "Kami membalas dalam waktu 24 jam"
+    },
+    "office": {
+      "title": "Kantor Pusat Yogyakarta",
+      "description": "Berlokasi strategis di pusat budaya Yogyakarta, melayani klien perusahaan di seluruh nusantara."
+    },
+    "form": {
+      "name": "Nama Lengkap",
+      "namePlaceholder": "Budi Santoso",
+      "email": "Alamat Email",
+      "emailPlaceholder": "budi@contoh.com",
+      "phone": "Nomor Telepon",
+      "phonePlaceholder": "+62 (812) 3456-789",
+      "message": "Pesan",
+      "messagePlaceholder": "Ceritakan tentang perjalanan atau acara impian Anda...",
+      "submit": "Kirim Pesan",
+      "submitting": "Mengirim Pesan...",
+      "success": "Terima kasih! Pesan Anda telah berhasil dikirim.",
+      "error": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi."
+    }
+  },
+  "destinations": {
+    "hero": {
+      "title": "Destinasi Kami",
+      "description": "Dari surga tropis hingga pemandangan kota yang sibuk, temukan latar belakang sempurna untuk petualangan Anda berikutnya."
+    },
+    "detail": {
+      "about": "Tentang",
+      "availablePackages": "Paket Tersedia",
+      "exploreText": "Jelajahi tur dan perjalanan terbaik yang kami tawarkan di",
+      "noPackages": "Saat ini tidak ada paket yang tersedia untuk destinasi ini.",
+      "days": "Hari",
+      "viewDetails": "Lihat Detail"
+    }
+  },
+  "packages": {
+    "hero": {
+      "tag": "Rekam Jejak",
+      "title": "Portofolio Perusahaan Kami",
+      "description": "Jelajahi rekam jejak ekstensif kami dalam menyelenggarakan outing perusahaan premium, team building berdampak tinggi, konferensi MICE, dan tur edukasi di seluruh Indonesia dan sekitarnya."
+    },
+    "stats": {
+      "events": "Acara Berhasil Dilaksanakan",
+      "clients": "Mitra Perusahaan",
+      "locations": "Destinasi yang Dijelajahi"
+    },
+    "filters": {
+      "searchPlaceholder": "Cari berdasarkan klien, lokasi, atau aktivitas (misal: Equine Global, Bali, Outing)...",
+      "clear": "Hapus",
+      "all": "Semua Proyek",
+      "outing": "Outing & Gathering",
+      "teamBuilding": "Team Building & Bootcamp",
+      "meeting": "Rapat & Konferensi",
+      "study": "Studi & Tur Khusus"
+    },
+    "results": {
+      "showing": "Menampilkan",
+      "of": "dari",
+      "results": "hasil",
+      "reset": "Atur Ulang Filter",
+      "empty": "Tidak Ada Proyek Ditemukan",
+      "emptyDesc": "Kami tidak dapat menemukan catatan outing yang cocok dengan kueri Anda di kategori ini. Coba sesuaikan kueri atau kategori Anda.",
+      "loadMore": "Muat Lebih Banyak Proyek",
+      "verified": "Perjalanan Terverifikasi"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Galeri Perjalanan",
+      "description": "Jelajahi momen menakjubkan yang diabadikan oleh para wisatawan kami di seluruh dunia."
+    },
+    "all": "Semua",
+    "empty": "Tidak ada gambar yang diunggah di kategori ini."
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog Perjalanan",
+      "description": "Wawasan, tips, dan inspirasi untuk perjalanan Anda berikutnya."
+    },
+    "empty": "Tidak ada postingan blog ditemukan. Silakan periksa kembali nanti.",
+    "author": "Tim F Travel"
+  }
+}

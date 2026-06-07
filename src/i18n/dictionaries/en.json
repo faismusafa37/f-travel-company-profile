@@ -1,0 +1,290 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "contact": "Contact Us",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "getInTouch": "Get In Touch",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe to get special packages, destination updates, and travel guides.",
+    "emailPlaceholder": "Your email address"
+  },
+  "home": {
+    "featuredDestinations": "Featured Destinations",
+    "featuredDestinationsDesc": "Discover our most popular travel spots around the globe.",
+    "viewAll": "View all",
+    "readyToStart": "Ready to start your next adventure?",
+    "contactUsToday": "Contact us today and let our experts help you plan the perfect trip tailored just for you.",
+    "contactUsNow": "Contact Us Now"
+  },
+  "services": {
+    "subtitle": "What We Do",
+    "title": "Our Services",
+    "description": "We deliver tailor-made solutions to unite teams, organize outstanding corporate events, and create thrilling adventures that inspire.",
+    "list": [
+      {
+        "title": "Event Planner",
+        "tag": "Corporate & Social",
+        "description": "Designing and managing various events from meetings, training, workshops, intimate dinners, and gala dinners to farewell parties, with a professional and memorable touch."
+      },
+      {
+        "title": "Corporate Outing & Gathering",
+        "tag": "Bonding Trips",
+        "description": "Delivering exciting journeys across various destinations with activities that foster togetherness. Every moment is designed to be a valuable and unforgettable experience."
+      },
+      {
+        "title": "Team Building & Outbound",
+        "tag": "Team Synergy",
+        "description": "Building teamwork and collaboration through interactive programs tailored to your team's needs. Fun, meaningful, and designed to strengthen professional bonding."
+      },
+      {
+        "title": "Fun Adventure Experience",
+        "tag": "Adrenaline Rush",
+        "description": "Providing adrenaline-packed and thrilling experiences through offroad adventures, rafting, ATV rides, trekking, and other challenging outdoor activities."
+      }
+    ]
+  },
+  "experiences": {
+    "subtitle": "Tailored Experiences",
+    "title": "Experiences Crafted for Every Occasion",
+    "description": "Whether it's a corporate gathering, gala dinner, educational tour, or family vacation, F-Travel creates experiences that leave lasting impressions.",
+    "list": [
+      {
+        "title": "Corporate Outing",
+        "tag": "Corporate Travel",
+        "description": "Inspiring destinations and seamless planning to recharge your team, fostering creativity and fresh perspectives."
+      },
+      {
+        "title": "Family Gathering",
+        "tag": "Bonding & Leisure",
+        "description": "Heartwarming reunions and multigenerational activities, creating cherished memories and fun for the whole family."
+      },
+      {
+        "title": "Fun Team Building",
+        "tag": "Team Synergy",
+        "description": "Action-packed icebreakers, interactive games, and collaborative challenges designed to build trust and strengthen bonding."
+      },
+      {
+        "title": "Gala Event & Dinner",
+        "tag": "Milestones & Celebration",
+        "description": "Exquisite dining, beautiful thematic staging, and flawless hosting to celebrate your company milestones in style."
+      },
+      {
+        "title": "MICE & High Level Meeting",
+        "tag": "Executive & Business",
+        "description": "Professional settings, high-end audiovisual logistics, and smooth execution for executive conferences and corporate summits."
+      },
+      {
+        "title": "Event Show Management",
+        "tag": "Live Production",
+        "description": "Full-scale live production, choreography, lighting, directing, and stage synchronization for grand events and entertainment."
+      }
+    ]
+  },
+  "team": {
+    "subtitle": "Meet the Experts",
+    "title": "Our Team",
+    "description": "The passionate minds behind every successful journey and corporate gathering at F-Travel.",
+    "list": [
+      {
+        "name": "Wahyu Prabowo",
+        "role": "Chief Executive Officer",
+        "quote": "Experienced in managing 100+ events across Indonesia."
+      },
+      {
+        "name": "Wiwit Novia Susanti",
+        "role": "Managing Director",
+        "quote": "Ensuring F-Travel runs efficiently and provides the best service."
+      },
+      {
+        "name": "Farras Alaydrus",
+        "role": "Event Coordinator",
+        "quote": "Specialized in planning and organizing events."
+      },
+      {
+        "name": "Fajri Alaydrus",
+        "role": "Tour Leader Coordinator",
+        "quote": "Committed to making every trip run perfectly."
+      }
+    ]
+  },
+  "clients": {
+    "title": "Our Clients",
+    "description": "Forward-thinking brands trust F-Travel to deliver outstanding journeys. We partner with leading enterprises to bring you the best travel experiences."
+  },
+  "testimonials": {
+    "subtitle": "Stories of Success",
+    "title": "What Our Clients Say",
+    "description": "Read real stories from corporate outings and gatherings managed by F-Travel across top destinations."
+  },
+  "about": {
+    "mission": {
+      "tag": "Our Mission",
+      "title": "Creating Inspiring Journeys",
+      "points": [
+        "Delivering exceptional service quality.",
+        "Tailoring solutions to unique client needs.",
+        "Ensuring safety and comfort at all times.",
+        "Building long-term partnerships based on trust."
+      ],
+      "description": "To be a trusted travel partner that understands the unique objectives of each customer, weaving memorable and valuable experiences into every moment of togetherness shared with our team."
+    },
+    "vision": {
+      "tag": "Our Vision",
+      "title": "Premier Travel Service Provider",
+      "points": [
+        "To become the top choice for corporate travels.",
+        "To continuously innovate our service offerings.",
+        "To expand our reach globally with local expertise."
+      ],
+      "description": "F-Travel is committed to providing comfortable, safe, and enjoyable travel and event services through a professional and experienced team. We present a variety of tours, corporate outings, team building, and custom programs that are diverse, affordable, and memorable for every customer."
+    },
+    "hero": {
+      "subtitle": "Get To Know Us",
+      "title": "About F-Travel",
+      "description": "Tour Organizer, Travel Consultant, and Event Planner dedicated to crafting unforgettable global journeys."
+    },
+    "quote": "\"Connecting people with the beauty of the world and weaving togetherness through safe, well-planned, and memorable journeys.\"",
+    "features": [
+      "100% Legal & Officially Registered",
+      "Based in Yogyakarta",
+      "Wide Partnerships (SOEs, Corporate & Personal)"
+    ],
+    "profileTag": "Company Profile",
+    "whyChooseUs": {
+      "items": [
+        {
+          "title": "Safety & Legality",
+          "desc": "Operating under the official legal entity PT Dua Rasi Nusantara, ensuring your transactions and journeys are fully secured and legally protected."
+        },
+        {
+          "title": "Experienced Team",
+          "desc": "Supported by professional Tour Leaders and Event Planners who master the field, ensuring maximum comfort and seamless execution on site."
+        },
+        {
+          "title": "Flexible Programs",
+          "desc": "From budget requirements to itinerary specifics, everything can be flexibly customized to meet your team's unique operational needs."
+        }
+      ]
+    },
+    "legal": {
+      "title": "Company Legality Credentials",
+      "badge": "Official & Licensed",
+      "description": "F-Travel is officially under the legal umbrella of {legalName} and is registered as a valid business entity. We are fully licensed and highly committed to providing the best experiences and legal protection for every transaction and trip of our clients.",
+      "fields": {
+        "entityName": "Legal Entity Name",
+        "brandName": "Brand Name",
+        "decree": "Ministry Decree No (SK Kemenkumham)",
+        "nib": "Business Registry Number (NIB)",
+        "cert": "Standard Operating Certificate"
+      }
+    },
+    "title": "High Professionalism with a Personal Touch",
+    "desc1": "F-Travel is a Yogyakarta-based Tour Organizer, Travel Consultant, and Event Planner that delivers travel services with professional standards and a personal touch. Armed with extensive experience in domestic and international tourism, as well as Corporate Events such as Meetings, Gatherings, Outbound trips, and special interest programs, we are trusted by various clients from private corporations, state-owned enterprises (BUMN), to personal travelers.",
+    "desc2": "We understand that every journey brings its own unique story and purpose. Therefore, with a strong commitment to quality, flexibility, and creativity, F-Travel is always ready to deliver the best and most unforgettable experiences in every journey we design."
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "Have a question or ready to plan your next event? We'd love to hear from you."
+    },
+    "sections": {
+      "form": "Get in Touch",
+      "info": "Contact Information"
+    },
+    "fields": {
+      "address": "Address",
+      "phone": "Phone",
+      "phoneDetail": "Mon-Fri, 9am - 5pm WIB",
+      "email": "Email",
+      "emailDetail": "We respond within 24 hours"
+    },
+    "office": {
+      "title": "Yogyakarta Head Office",
+      "description": "Centrally located in the cultural hub of Yogyakarta, serving corporate clients nationwide."
+    },
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+62 (812) 3456-789",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your dream trip or event...",
+      "submit": "Send Message",
+      "submitting": "Sending Message...",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "An unexpected error occurred. Please try again."
+    }
+  },
+  "destinations": {
+    "hero": {
+      "title": "Our Destinations",
+      "description": "From tropical paradises to bustling cityscapes, find the perfect backdrop for your next adventure."
+    },
+    "detail": {
+      "about": "About",
+      "availablePackages": "Available Packages",
+      "exploreText": "Explore the best tours and trips we offer in",
+      "noPackages": "No packages currently available for this destination.",
+      "days": "Days",
+      "viewDetails": "View Details"
+    }
+  },
+  "packages": {
+    "hero": {
+      "tag": "Track Record",
+      "title": "Our Corporate Portfolio",
+      "description": "Explore our extensive track record of delivering premium corporate outings, high-impact team buildings, MICE conferences, and study tours across Indonesia and beyond."
+    },
+    "stats": {
+      "events": "Events Executed Successfully",
+      "clients": "Corporate Partners",
+      "locations": "Destinations Covered"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by client, location, or activity (e.g. Equine Global, Bali, Outing)...",
+      "clear": "Clear",
+      "all": "All Projects",
+      "outing": "Outings & Gatherings",
+      "teamBuilding": "Team Building & Bootcamp",
+      "meeting": "Meetings & Conferences",
+      "study": "Study & Special Tours"
+    },
+    "results": {
+      "showing": "Showing",
+      "of": "of",
+      "results": "results",
+      "reset": "Reset Filters",
+      "empty": "No Projects Found",
+      "emptyDesc": "We couldn't find any outing records matching your query in this category. Try adjusting your query or category.",
+      "loadMore": "Load More Projects",
+      "verified": "Verified Trip"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Travel Gallery",
+      "description": "Explore breathtaking moments captured by our travelers around the world."
+    },
+    "all": "All",
+    "empty": "No images uploaded in this category."
+  },
+  "blog": {
+    "hero": {
+      "title": "Travel Blog",
+      "description": "Insights, tips, and inspiration for your next journey."
+    },
+    "empty": "No blog posts found. Please check back later.",
+    "author": "F Travel Team"
+  }
+}
