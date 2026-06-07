@@ -160,6 +160,8 @@
     ],
     "profileTag": "Profil Perusahaan",
     "whyChooseUs": {
+      "title": "Mengapa Memilih Kami?",
+      "description": "Temukan alasan mengapa ratusan klien mempercayakan perjalanan mereka kepada F-Travel.",
       "items": [
         {
           "title": "Keamanan & Legalitas",

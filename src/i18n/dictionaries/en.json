@@ -160,6 +160,8 @@
     ],
     "profileTag": "Company Profile",
     "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "description": "Discover the reasons why hundreds of clients entrust their journeys to F-Travel.",
       "items": [
         {
           "title": "Safety & Legality",
