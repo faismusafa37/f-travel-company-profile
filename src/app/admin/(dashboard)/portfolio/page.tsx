@@ -5,7 +5,8 @@ const prisma = new PrismaClient();
 
 export default async function AdminPortfolioPage() {
   const projects = await prisma.portfolioProject.findMany({
-    orderBy: { createdAt: "desc" }
+    orderBy: { createdAt: "desc" },
+    include: { images: true }
   });
 
   return (

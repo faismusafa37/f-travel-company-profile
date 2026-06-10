@@ -28,12 +28,12 @@
   "services": {
     "subtitle": "What We Do",
     "title": "Our Services",
-    "description": "We deliver tailor-made solutions to unite teams, organize outstanding corporate events, and create thrilling adventures that inspire.",
+    "description": "We understand that every trip and corporate event has its own strategic goals, from improving team cohesion and showing appreciation, to celebrating milestones. F-Travel is here as a strategic partner to design, manage, and execute every agenda with high professional standards, ensuring every moment runs smoothly and leaves a positive impact on your organization.",
     "list": [
       {
         "title": "Event Planner",
         "tag": "Corporate & Social",
-        "description": "Designing and managing various events from meetings, training, workshops, intimate dinners, and gala dinners to farewell parties, with a professional and memorable touch."
+        "description": "Designing and managing various events, from meetings, training sessions, workshops, intimate dinners, and gala dinners to farewell parties, with a professional and memorable touch."
       },
       {
         "title": "Corporate Outing & Gathering",
@@ -53,46 +53,46 @@
     ]
   },
   "experiences": {
-    "subtitle": "Tailored Experiences",
-    "title": "Experiences Crafted for Every Occasion",
-    "description": "Whether it's a corporate gathering, gala dinner, educational tour, or family vacation, F-Travel creates experiences that leave lasting impressions.",
+    "subtitle": "TAILORED EXPERIENCES",
+    "title": "Experiences Crafted Specifically for Every Precious Moment",
+    "description": "We believe there is no one-size-fits-all journey or event. That is why F-Travel offers full flexibility to design every detail of your agenda according to your unique vision, budget, and needs. From creative concepts to on-ground execution, we ensure your special moments become a personalized experience that leaves a lasting impression.",
     "list": [
       {
+        "tag": "Business Travel",
         "title": "Corporate Outing",
-        "tag": "Corporate Travel",
-        "description": "Inspiring destinations and seamless planning to recharge your team, fostering creativity and fresh perspectives."
+        "description": "Give the best appreciation for your team's dedication through refreshing incentive trips. We combine inspiring destination selections, ideal accommodations, and meticulous logistics management to recharge energy, spark creativity, and build fresh new perspectives for your company."
       },
       {
-        "title": "Family Gathering",
-        "tag": "Bonding & Leisure",
-        "description": "Heartwarming reunions and multigenerational activities, creating cherished memories and fun for the whole family."
-      },
-      {
-        "title": "Fun Team Building",
         "tag": "Team Synergy",
-        "description": "Action-packed icebreakers, interactive games, and collaborative challenges designed to build trust and strengthen bonding."
+        "title": "Team Building & Outbound",
+        "description": "More than just playing, we present a series of action-packed icebreakers, interactive simulations, and collaborative challenges. Specifically designed using experiential learning methods to break the ice, build mutual trust, and truly strengthen cross-divisional teamwork."
       },
       {
-        "title": "Gala Event & Dinner",
-        "tag": "Milestones & Celebration",
-        "description": "Exquisite dining, beautiful thematic staging, and flawless hosting to celebrate your company milestones in style."
+        "tag": "Celebration & Milestones",
+        "title": "Gala Dinner & Corporate Celebration",
+        "description": "Celebrate your company's achievements and successful journey in style. We bring prestigious award nights to life through elegant thematic concepts, stunning visual staging, exquisite dining, and precise stage management to leave a profound impression on all guests."
       },
       {
-        "title": "MICE & High Level Meeting",
-        "tag": "Executive & Business",
-        "description": "Professional settings, high-end audiovisual logistics, and smooth execution for executive conferences and corporate summits."
+        "tag": "Executive & Business Professionals",
+        "title": "Corporate Meeting & Conference",
+        "description": "Focus on your strategic business decisions, and let us manage the details. We provide professional conference management solutions, from representative meeting room setups and top-tier audiovisual equipment provision, to seamless logistics coordination for the success of your important agenda."
       },
       {
-        "title": "Event Show Management",
-        "tag": "Live Production",
-        "description": "Full-scale live production, choreography, lighting, directing, and stage synchronization for grand events and entertainment."
+        "tag": "Stage Production & Live Entertainment",
+        "title": "Event Production & Show Management",
+        "description": "Transform your creative concept into a spectacular full-scale stage performance. Supported by an experienced show management team, we handle lighting, sound effects, choreography, and live stage synchronization to ensure your event runs flawlessly and majestically."
+      },
+      {
+        "tag": "Education & Knowledge Exploration",
+        "title": "Study Tour & Field Trip",
+        "description": "Turn learning methods into interactive educational adventures outside the classroom. We design study tours and field trips that blend curriculum education elements with cultural, scientific, and nature exploration. Packaged safely, educationally, and enjoyably to stimulate curiosity and broaden the horizons of students and academics."
       }
     ]
   },
   "team": {
     "subtitle": "Meet the Experts",
     "title": "Our Team",
-    "description": "The passionate minds behind every successful journey and corporate gathering at F-Travel.",
+    "description": "Behind every meticulously organized travel detail and the success of a corporate event, there is a professional team working wholeheartedly. F-Travel is driven by dedicated, experienced experts who are always ready to listen to your vision. From creative concept design to mature on-ground execution, we are the main pillar ensuring your shared moments become an extraordinary experience.",
     "list": [
       {
         "name": "Wahyu Prabowo",
@@ -117,40 +117,41 @@
     ]
   },
   "clients": {
-    "title": "Our Clients",
-    "description": "Forward-thinking brands trust F-Travel to deliver outstanding journeys. We partner with leading enterprises to bring you the best travel experiences."
+    "title": "OUR CLIENTS",
+    "description": "The trust of various leading companies and institutions is our greatest achievement. F-Travel translates their visions into a series of extraordinary journeys and events. By maintaining high quality standards and meticulous attention to every small detail, we are proud to continue being a trusted partner you can always rely on."
   },
   "testimonials": {
-    "subtitle": "Stories of Success",
+    "subtitle": "Success Stories",
     "title": "What Our Clients Say",
-    "description": "Read real stories from corporate outings and gatherings managed by F-Travel across top destinations."
+    "description": "For us, every challenge is an opportunity to provide the best service. From the cool mountains and exotic beaches to cross-country journeys, we are committed to bringing smiles at the end of every story. Explore the success stories of our collaborations with great brands that continue to entrust their travel, meeting, and corporate outing agendas to us."
   },
   "about": {
     "mission": {
       "tag": "Our Mission",
       "title": "Creating Inspiring Journeys",
       "points": [
-        "Delivering exceptional service quality.",
-        "Tailoring solutions to unique client needs.",
-        "Ensuring safety and comfort at all times.",
-        "Building long-term partnerships based on trust."
+        "Deliver Exceptional Quality: Presenting neat, responsive program execution that exceeds customer expectations.",
+        "Personalize Client Needs: Designing adaptive travel and meeting concepts in line with your company's vision and culture.",
+        "Prioritize Safety & Comfort: Maintaining the highest safety standards to bring peace of mind to every shared moment.",
+        "Build Sustainable Partnerships: Being a consistently trusted strategic partner for all corporate agenda needs."
       ],
-      "description": "To be a trusted travel partner that understands the unique objectives of each customer, weaving memorable and valuable experiences into every moment of togetherness shared with our team."
+      "description": "In realizing our commitment as a trusted partner, F-Travel dedicates all its best expertise to:"
     },
     "vision": {
       "tag": "Our Vision",
-      "title": "Premier Travel Service Provider",
+      "title": "Premier Travel & Event Service Provider",
       "points": [
-        "To become the top choice for corporate travels.",
-        "To continuously innovate our service offerings.",
-        "To expand our reach globally with local expertise."
+        "Deliver Exceptional Quality: Presenting neat, responsive program execution that exceeds customer expectations.",
+        "Personalize Client Needs: Designing adaptive travel and meeting concepts in line with your company's vision and culture.",
+        "Prioritize Safety & Comfort: Maintaining the highest safety standards to bring peace of mind to every shared moment.",
+        "Build Sustainable Partnerships: Being a consistently trusted strategic partner for all corporate agenda needs."
       ],
-      "description": "F-Travel is committed to providing comfortable, safe, and enjoyable travel and event services through a professional and experienced team. We present a variety of tours, corporate outings, team building, and custom programs that are diverse, affordable, and memorable for every customer."
+      "description": "To achieve the position of a primary strategic partner, F-Travel is fully committed to:"
     },
     "hero": {
       "subtitle": "Get To Know Us",
       "title": "About F-Travel",
-      "description": "Tour Organizer, Travel Consultant, and Event Planner dedicated to crafting unforgettable global journeys."
+      "description": "Professional Tour Organizer, Travel Consultant, and Event Planner fully dedicated to transforming every one of your corporate travel agendas into an unforgettable experience."
     },
     "quote": "\"Connecting people with the beauty of the world and weaving togetherness through safe, well-planned, and memorable journeys.\"",
     "features": [
@@ -161,19 +162,24 @@
     "profileTag": "Company Profile",
     "whyChooseUs": {
       "title": "Why Choose Us?",
-      "description": "Discover the reasons why hundreds of clients entrust their journeys to F-Travel.",
+      "desc1": "A good journey starts with the right partner.",
+      "desc2": "For us, F-Travel is not just a service provider, but a travel companion who understands that every client has different goals and stories. With experience in various types of trips and events, we come with a flexible approach, maximum service, and fresh concepts. We listen, design, and execute every program with full attention to detail, making every shared moment more meaningful.",
       "items": [
         {
-          "title": "Safety & Legality",
-          "desc": "Operating under the official legal entity PT Dua Rasi Nusantara, ensuring your transactions and journeys are fully secured and legally protected."
+          "title": "Professional",
+          "desc": "We have a highly experienced and dedicated team in designing and managing tours and events with the best service."
         },
         {
-          "title": "Experienced Team",
-          "desc": "Supported by professional Tour Leaders and Event Planners who master the field, ensuring maximum comfort and seamless execution on site."
+          "title": "Innovative",
+          "desc": "We continuously bring fresh and creative ideas to every travel program we offer."
         },
         {
-          "title": "Flexible Programs",
-          "desc": "From budget requirements to itinerary specifics, everything can be flexibly customized to meet your team's unique operational needs."
+          "title": "Trusted",
+          "desc": "Supported by official legalities and a wide network of partners, we always maintain client trust with transparent, consistent, and reliable services."
+        },
+        {
+          "title": "Sustainable",
+          "desc": "We are committed to supporting sustainable tourism by prioritizing social responsibility and caring for the environment and local communities."
         }
       ]
     },
@@ -189,9 +195,9 @@
         "cert": "Standard Operating Certificate"
       }
     },
-    "title": "High Professionalism with a Personal Touch",
-    "desc1": "F-Travel is a Yogyakarta-based Tour Organizer, Travel Consultant, and Event Planner that delivers travel services with professional standards and a personal touch. Armed with extensive experience in domestic and international tourism, as well as Corporate Events such as Meetings, Gatherings, Outbound trips, and special interest programs, we are trusted by various clients from private corporations, state-owned enterprises (BUMN), to personal travelers.",
-    "desc2": "We understand that every journey brings its own unique story and purpose. Therefore, with a strong commitment to quality, flexibility, and creativity, F-Travel is always ready to deliver the best and most unforgettable experiences in every journey we design."
+    "title": "High Professionalism with Adaptive Services",
+    "desc1": "F-Travel is a Tour Organizer, Travel Consultant, and Event Planner based in Yogyakarta, providing travel solutions with excellent service standards. Armed with extensive experience in managing domestic and international tourism, as well as various Corporate Events such as Meetings (MICE), Gatherings, Outbound programs, and special interests, we have been trusted by various private companies, state-owned enterprises, and personal travelers.",
+    "desc2": "We understand that every journey carries its own story, essence, and purpose. Therefore, with a strong commitment to quality, flexibility, and creativity, F-Travel is always ready to provide the best personalized experience specifically for your comfort and unforgettable moments."
   },
   "contact": {
     "hero": {
@@ -246,7 +252,7 @@
     "hero": {
       "tag": "Track Record",
       "title": "Our Corporate Portfolio",
-      "description": "Explore our extensive track record of delivering premium corporate outings, high-impact team buildings, MICE conferences, and study tours across Indonesia and beyond."
+      "description": "Explore our track record in designing and executing a series of corporate outings, team building programs, MICE conferences, and tour packages across various popular destinations in Indonesia and abroad."
     },
     "stats": {
       "events": "Events Executed Successfully",
@@ -273,10 +279,19 @@
       "verified": "Verified Trip"
     }
   },
+  "portfolioDetail": {
+    "back": "Back to Portfolio",
+    "overview": "Project Overview",
+    "client": "Client",
+    "category": "Category",
+    "location": "Location",
+    "year": "Year",
+    "gallery": "Event Gallery"
+  },
   "gallery": {
     "hero": {
       "title": "Travel Gallery",
-      "description": "Explore breathtaking moments captured by our travelers around the world."
+      "description": "Every photo carries a story. Explore a collection of real documentation that captures every travel detail, team collaboration, and unforgettable moments from our trusted partners."
     },
     "all": "All",
     "empty": "No images uploaded in this category."
@@ -284,7 +299,7 @@
   "blog": {
     "hero": {
       "title": "Travel Blog",
-      "description": "Insights, tips, and inspiration for your next journey."
+      "description": "Find diverse travel information for office outings, as well as essential tips specially curated to inspire and simplify your corporate travel planning."
     },
     "empty": "No blog posts found. Please check back later.",
     "author": "F Travel Team"

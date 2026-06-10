@@ -14,17 +14,32 @@ const portfolioProjectSchema = z.object({
   original: z.string().min(5, "Original text is required"),
   year: z.string().min(4, "Year is required"),
   status: z.enum(["PUBLISHED", "DRAFT"]).default("PUBLISHED"),
+  images: z.array(z.object({
+    url: z.string(),
+    caption: z.string().optional(),
+    sortOrder: z.number().default(0)
+  })).optional()
 });
 
 export async function createPortfolioProjectAction(data: z.infer<typeof portfolioProjectSchema>) {
   try {
-    const parsed = portfolioProjectSchema.parse(data);
+    const { images, ...parsedData } = portfolioProjectSchema.parse(data);
     const project = await prisma.portfolioProject.create({
-      data: parsed
+      data: {
+        ...parsedData,
+        images: images && images.length > 0 ? {
+          create: images.map(img => ({
+            url: img.url,
+            caption: img.caption,
+            sortOrder: img.sortOrder
+          }))
+        } : undefined
+      }
     });
 
     revalidatePath("/packages");
     revalidatePath("/admin/portfolio");
+    revalidatePath("/gallery");
     return { success: true, project };
   } catch (error) {
     console.error("Create portfolio project error:", error);
@@ -37,14 +52,39 @@ export async function createPortfolioProjectAction(data: z.infer<typeof portfoli
 
 export async function updatePortfolioProjectAction(id: string, data: z.infer<typeof portfolioProjectSchema>) {
   try {
-    const parsed = portfolioProjectSchema.parse(data);
+    const { images, ...parsedData } = portfolioProjectSchema.parse(data);
+    
+    // First update the main project data
     const project = await prisma.portfolioProject.update({
       where: { id },
-      data: parsed
+      data: parsedData
     });
+
+    // Then update images if provided
+    if (images !== undefined) {
+      // Simplest way is to delete existing and recreate
+      // (Assuming prisma generated client knows about PortfolioImage)
+      // @ts-ignore
+      await prisma.portfolioImage.deleteMany({
+        where: { portfolioProjectId: id }
+      });
+      
+      if (images.length > 0) {
+        // @ts-ignore
+        await prisma.portfolioImage.createMany({
+          data: images.map(img => ({
+            url: img.url,
+            caption: img.caption,
+            sortOrder: img.sortOrder,
+            portfolioProjectId: id
+          }))
+        });
+      }
+    }
 
     revalidatePath("/packages");
     revalidatePath("/admin/portfolio");
+    revalidatePath("/gallery");
     return { success: true, project };
   } catch (error) {
     console.error("Update portfolio project error:", error);

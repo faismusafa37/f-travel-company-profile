@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import { 
   Search, 
   MapPin, 
@@ -36,6 +37,7 @@ export interface ProjectItem {
   category: string;
   original: string;
   year: string;
+  images?: { id: string; url: string; caption?: string | null; sortOrder?: number }[];
 }
 
 export function PortfolioClient({ initialProjects = [], dict }: { initialProjects: ProjectItem[], dict?: any }) {
@@ -266,8 +268,22 @@ export function PortfolioClient({ initialProjects = [], dict }: { initialProject
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35 }}
-                className="group bg-white border border-slate-200/70 hover:border-orange-500/30 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden"
+                className="group bg-white border border-slate-200/70 hover:border-orange-500/30 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden"
               >
+                <Link href={`/portfolio/${project.id}`} className="flex flex-col justify-between h-full relative w-full">
+                
+                {/* Optional Image */}
+                {project.images && project.images.length > 0 && (
+                  <div className="w-full h-48 bg-slate-100 relative overflow-hidden shrink-0">
+                    <img 
+                      src={project.images[0].url} 
+                      alt={project.client}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+                
+                <div className="flex flex-col flex-1 p-6">
                 {/* Visual Accent top left */}
                 <div className="absolute top-0 left-0 w-2 h-full bg-slate-100 group-hover:bg-orange-500/30 transition-colors" />
 
@@ -303,6 +319,8 @@ export function PortfolioClient({ initialProjects = [], dict }: { initialProject
                     {dict?.packages?.results?.verified || "Verified Trip"} &bull;
                   </span>
                 </div>
+                </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

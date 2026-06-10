@@ -13,8 +13,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { Trash2, Edit, Loader2, Search, ArrowLeft, ArrowRight } from "lucide-react";
+import { Trash2, Edit, Loader2, Search, ArrowLeft, ArrowRight, Upload, Star } from "lucide-react";
 import { createPortfolioProjectAction, updatePortfolioProjectAction, deletePortfolioProjectAction, togglePortfolioProjectStatusAction } from "@/app/actions/portfolio";
+import { uploadImageAction } from "@/app/actions/upload";
 
 const portfolioProjectSchema = z.object({
   client: z.string().min(2, "Client name must be at least 2 characters"),
@@ -24,6 +25,11 @@ const portfolioProjectSchema = z.object({
   original: z.string().min(5, "Original text is required"),
   year: z.string().min(4, "Year is required"),
   status: z.enum(["PUBLISHED", "DRAFT"]),
+  images: z.array(z.object({
+    url: z.string(),
+    caption: z.string().optional(),
+    sortOrder: z.number()
+  })).optional()
 });
 
 type FormValues = z.infer<typeof portfolioProjectSchema>;
@@ -37,6 +43,7 @@ interface ProjectItem {
   original: string;
   year: string;
   status: string;
+  images?: { id?: string; url: string; caption?: string | null; sortOrder?: number }[];
 }
 
 export function PortfolioDashboard({ initialProjects }: { initialProjects: ProjectItem[] }) {
@@ -44,6 +51,8 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
   const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isActionLoading, setIsActionLoading] = useState<string | null>(null);
+  const [uploadedImages, setUploadedImages] = useState<{url: string, caption?: string, sortOrder: number}[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
 
   // Search, Filter, Pagination state
   const [searchQuery, setSearchQuery] = useState("");
@@ -68,6 +77,7 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       original: "",
       year: new Date().getFullYear().toString(),
       status: "PUBLISHED",
+      images: [],
     },
   });
 
@@ -118,6 +128,8 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
 
   const handleEdit = (p: ProjectItem) => {
     setEditingProject(p);
+    const initialImages = p.images?.map(img => ({ url: img.url, caption: img.caption || undefined, sortOrder: img.sortOrder || 0 })) || [];
+    setUploadedImages(initialImages);
     reset({
       client: p.client,
       activity: p.activity,
@@ -126,11 +138,13 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       original: p.original,
       year: p.year,
       status: p.status as any,
+      images: initialImages,
     });
   };
 
   const handleCancelEdit = () => {
     setEditingProject(null);
+    setUploadedImages([]);
     reset({
       client: "",
       activity: "",
@@ -139,7 +153,54 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       original: "",
       year: new Date().getFullYear().toString(),
       status: "PUBLISHED",
+      images: [],
     });
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    setIsUploading(true);
+    try {
+      const newImages = [...uploadedImages];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const formData = new FormData();
+        formData.append("file", file);
+        const res = await uploadImageAction(formData);
+        if (res.success && res.url) {
+          newImages.push({ url: res.url, sortOrder: newImages.length });
+        } else {
+          toast.error(`Failed to upload ${file.name}`);
+        }
+      }
+      setUploadedImages(newImages);
+      setValue("images", newImages);
+    } catch (error) {
+      toast.error("An error occurred during upload");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleRemoveImage = (index: number) => {
+    const newImages = [...uploadedImages];
+    newImages.splice(index, 1);
+    // update sort order
+    newImages.forEach((img, i) => img.sortOrder = i);
+    setUploadedImages(newImages);
+    setValue("images", newImages);
+  };
+
+  const handleSetMainImage = (index: number) => {
+    if (index === 0) return;
+    const newImages = [...uploadedImages];
+    const [selected] = newImages.splice(index, 1);
+    newImages.unshift(selected); // Move to index 0
+    newImages.forEach((img, i) => img.sortOrder = i);
+    setUploadedImages(newImages);
+    setValue("images", newImages);
   };
 
   const onSubmit = async (data: FormValues) => {
@@ -322,6 +383,52 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
               {errors.category && (
                 <p className="text-xs text-red-500 font-semibold">{errors.category.message}</p>
               )}
+            </div>
+
+            {/* Image Upload Section */}
+            <div className="space-y-4 pt-2 border-t border-slate-100">
+              <Label>Portfolio Photos</Label>
+              <div className="flex flex-wrap gap-4">
+                {uploadedImages.map((img, idx) => (
+                  <div key={idx} className="relative w-24 h-24 rounded-lg overflow-hidden border border-slate-200 group">
+                    <img src={img.url} alt={`Upload ${idx}`} className="w-full h-full object-cover" />
+                    
+                    {idx === 0 && (
+                      <div className="absolute top-1 left-1 bg-orange-500 text-white p-0.5 rounded shadow-sm z-10" title="Main Display Image">
+                        <Star className="w-3 h-3 fill-current" />
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {idx !== 0 && (
+                        <button
+                          type="button"
+                          onClick={() => handleSetMainImage(idx)}
+                          className="p-1.5 bg-white/20 hover:bg-white/40 rounded-full transition-colors"
+                          title="Set as Display Image"
+                        >
+                          <Star className="w-4 h-4 text-white" />
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveImage(idx)}
+                        className="p-1.5 bg-red-500/80 hover:bg-red-500 rounded-full transition-colors"
+                        title="Remove Image"
+                      >
+                        <Trash2 className="w-4 h-4 text-white" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+                
+                <label className="flex flex-col items-center justify-center w-24 h-24 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-500 hover:bg-orange-50/50 transition-colors">
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    {isUploading ? <Loader2 className="w-6 h-6 text-slate-400 animate-spin" /> : <Upload className="w-6 h-6 text-slate-400" />}
+                  </div>
+                  <input type="file" accept="image/*" multiple className="hidden" onChange={handleImageUpload} disabled={isUploading} />
+                </label>
+              </div>
             </div>
 
             <div className="flex gap-2 pt-2">

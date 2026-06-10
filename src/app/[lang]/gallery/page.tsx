@@ -15,9 +15,32 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
 
-  const images = await prisma.galleryImage.findMany({
+  const galleryImages = await prisma.galleryImage.findMany({
     orderBy: { createdAt: "desc" }
   });
 
-  return <GalleryClient images={images} dict={dict} />;
+  const portfolioImages = await prisma.portfolioImage.findMany({
+    include: { portfolioProject: true },
+    orderBy: { createdAt: "desc" }
+  });
+
+  // Normalize and combine
+  const combinedImages = [
+    ...galleryImages.map(img => ({
+      id: img.id,
+      url: img.url,
+      alt: img.alt,
+      category: img.category,
+      createdAt: img.createdAt
+    })),
+    ...portfolioImages.map(img => ({
+      id: img.id,
+      url: img.url,
+      alt: img.caption || `${img.portfolioProject.client} - ${img.portfolioProject.activity}`,
+      category: "Portfolio", // or img.portfolioProject.category
+      createdAt: img.createdAt
+    }))
+  ].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+  return <GalleryClient images={combinedImages} dict={dict} />;
 }

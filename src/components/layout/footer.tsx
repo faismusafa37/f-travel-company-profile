@@ -99,7 +99,7 @@ export function Footer({ settings = {}, lang = "id", dict }: { settings?: Record
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-500 shrink-0" />
-                <a href={`mailto:${settings.contact_email || "hello@ftravel.com"}`} className="hover:text-orange-500 transition-colors">
+                <a href={`mailto:${settings.contact_email || "hello@f-travel.com"}`} className="hover:text-orange-500 transition-colors">
                   {settings.contact_email || "hello@ftravel.com"}
                 </a>
               </li>

@@ -28,17 +28,17 @@
   "services": {
     "subtitle": "Apa Yang Kami Lakukan",
     "title": "Layanan Kami",
-    "description": "Kami memberikan solusi yang dirancang khusus untuk menyatukan tim, mengadakan acara perusahaan yang luar biasa, dan menciptakan petualangan mendebarkan yang menginspirasi.",
+    "description": "Kami memahami bahwa setiap perjalanan dan acara perusahaan memiliki tujuan strategisnya sendiri, mulai dari meningkatkan kekompakan tim, memberikan apresiasi, hingga merayakan pencapaian. F-Travel hadir sebagai mitra strategis yang merancang, mengelola, dan mengeksekusi setiap agenda Anda dengan standar profesional tinggi, memastikan setiap momen berjalan lancar dan memberikan dampak positif bagi organisasi Anda.",
     "list": [
       {
-        "title": "Perencanaan Acara",
+        "title": "Event Planner",
         "tag": "Perusahaan & Sosial",
         "description": "Merancang dan mengelola berbagai acara mulai dari rapat, pelatihan, lokakarya, makan malam intim, dan makan malam gala hingga pesta perpisahan, dengan sentuhan profesional dan berkesan."
       },
       {
-        "title": "Outing Perusahaan & Gathering",
+        "title": "Corporate Outing & Gathering",
         "tag": "Perjalanan Kebersamaan",
-        "description": "Memberikan perjalanan menyenangkan di berbagai destinasi dengan aktivitas yang menumbuhkan kebersamaan. Setiap momen dirancang untuk menjadi pengalaman berharga dan tak terlupakan."
+        "description": "Menghadirkan perjalanan seru di berbagai destinasi dengan aktivitas yang menyatukan kebersamaan. Setiap momen dirancang untuk menjadi pengalaman berharga dan tak terlupakan."
       },
       {
         "title": "Team Building & Outbound",
@@ -46,53 +46,53 @@
         "description": "Membangun kerja sama tim dan kolaborasi melalui program interaktif yang disesuaikan dengan kebutuhan tim Anda. Menyenangkan, bermakna, dan dirancang untuk memperkuat ikatan profesional."
       },
       {
-        "title": "Pengalaman Petualangan Seru",
+        "title": "Fun Adventure Experience",
         "tag": "Pacu Adrenalin",
-        "description": "Menyediakan pengalaman penuh adrenalin dan mendebarkan melalui petualangan offroad, arung jeram, ATV, trekking, dan aktivitas luar ruangan menantang lainnya."
+        "description": "Memberikan pengalaman penuh adrenalin dan kegembiraan lewat offroad, rafting, ATV, trekking, hingga aktivitas outdoor lainnya yang menantang."
       }
     ]
   },
   "experiences": {
-    "subtitle": "Pengalaman yang Disesuaikan",
-    "title": "Pengalaman yang Dibuat untuk Setiap Kesempatan",
-    "description": "Baik itu gathering perusahaan, makan malam gala, tur edukasi, atau liburan keluarga, F-Travel menciptakan pengalaman yang meninggalkan kesan mendalam.",
+    "subtitle": "PENGALAMAN YANG DISESUAIKAN",
+    "title": "Pengalaman yang Dibuat Khusus untuk Setiap Momen Berharga",
+    "description": "Kami percaya bahwa tidak ada satu perjalanan atau acara yang cocok untuk semua orang. Karena itu, F-Travel hadir dengan fleksibilitas penuh untuk merancang setiap detail agenda sesuai dengan visi, anggaran, dan kebutuhan unik Anda. Mulai dari konsep kreatif hingga eksekusi di lapangan, kami memastikan momen spesial Anda menjadi sebuah pengalaman personal yang meninggalkan kesan mendalam.",
     "list": [
       {
-        "title": "Outing Perusahaan",
         "tag": "Perjalanan Bisnis",
-        "description": "Destinasi inspiratif dan perencanaan mulus untuk mengisi ulang energi tim Anda, menumbuhkan kreativitas dan perspektif segar."
+        "title": "Outing Perusahaan",
+        "description": "Berikan apresiasi terbaik bagi dedikasi tim Anda melalui perjalanan insentif yang menyegarkan. Kami mengombinasikan pemilihan destinasi inspiratif, akomodasi ideal, dan manajemen logistik yang matang untuk mengisi ulang energi, memicu kreativitas, serta membangun perspektif baru yang lebih segar bagi perusahaan Anda."
       },
       {
-        "title": "Gathering Keluarga",
-        "tag": "Keluarga & Liburan",
-        "description": "Reuni yang menghangatkan hati dan aktivitas antargenerasi, menciptakan kenangan berharga dan kesenangan bagi seluruh keluarga."
-      },
-      {
-        "title": "Team Building Seru",
         "tag": "Sinergi Tim",
-        "description": "Icebreaker penuh aksi, permainan interaktif, dan tantangan kolaboratif yang dirancang untuk membangun kepercayaan dan memperkuat ikatan."
+        "title": "Team Building & Outbound",
+        "description": "Bukan sekadar bermain, kami menghadirkan rangkaian icebreaker penuh aksi, simulasi interaktif, dan tantangan kolaboratif. Dirancang khusus menggunakan metode experiential learning untuk mencairkan suasana, membangun rasa saling percaya, dan memperkuat kerja sama tim antar divisi secara nyata."
       },
       {
-        "title": "Acara Gala & Makan Malam",
         "tag": "Perayaan & Pencapaian",
-        "description": "Makan malam istimewa, pementasan tematik yang indah, dan penyelenggaraan sempurna untuk merayakan pencapaian perusahaan Anda dengan gaya."
+        "title": "Gala Dinner & Corporate Celebration",
+        "description": "Rayakan pencapaian dan perjalanan sukses perusahaan Anda dengan penuh gaya. Kami mewujudkan malam penghargaan yang prestisius melalui konsep tematik yang elegan, pementasan visual yang memukau, sajian istimewa, serta manajemen panggung yang presisi demi memberikan impresi mendalam bagi seluruh tamu."
       },
       {
-        "title": "MICE & Pertemuan Tingkat Tinggi",
-        "tag": "Eksekutif & Bisnis",
-        "description": "Pengaturan profesional, logistik audiovisual kelas atas, dan pelaksanaan yang lancar untuk konferensi eksekutif dan pertemuan tingkat tinggi."
+        "tag": "Eksekutif & Bisnis Profesional",
+        "title": "Corporate Meeting & Conference",
+        "description": "Fokus pada keputusan strategis bisnis Anda, dan biarkan kami yang mengelola detailnya. Kami menyediakan solusi manajemen konferensi yang profesional, mulai dari penataan ruang rapat yang representatif, penyediaan perangkat audiovisual kelas atas, hingga koordinasi logistik yang mulus demi kelancaran agenda penting Anda."
       },
       {
-        "title": "Manajemen Pertunjukan Acara",
-        "tag": "Produksi Langsung",
-        "description": "Produksi langsung berskala penuh, koreografi, pencahayaan, penyutradaraan, dan sinkronisasi panggung untuk acara besar dan hiburan."
+        "tag": "Produksi Panggung & Hiburan Live",
+        "title": "Event Production & Show Management",
+        "description": "Ubah konsep kreatif Anda menjadi sebuah pertunjukan panggung berskala penuh yang spektakuler. Didukung oleh tim show management berpengalaman, kami mengelola tata pencahayaan (lighting), efek suara, koreografi, hingga sinkronisasi panggung secara langsung (live production) untuk memastikan acara Anda berjalan megah tanpa cela."
+      },
+      {
+        "tag": "Edukasi & Eksplorasi Pengetahuan",
+        "title": "Study Tour & Field Trip",
+        "description": "Ubah metode pembelajaran menjadi petualangan edukatif yang interaktif di luar kelas. Kami merancang perjalanan studi dan kunjungan lapangan (field trip) yang memadukan unsur edukasi kurikulum dengan eksplorasi budaya, sains, serta alam. Dikemas secara aman, edukatif, dan menyenangkan untuk merangsang rasa ingin tahu serta memperluas wawasan para siswa maupun akademisi."
       }
     ]
   },
   "team": {
     "subtitle": "Temui Para Ahli",
     "title": "Tim Kami",
-    "description": "Orang-orang bersemangat di balik setiap perjalanan sukses dan pertemuan perusahaan di F-Travel.",
+    "description": "Di balik setiap detail perjalanan yang tersusun dengan rapi dan kesuksesan sebuah corporate event, ada tim profesional yang bekerja dengan sepenuh hati. F-Travel digerakkan oleh para ahli yang berdedikasi, berpengalaman, dan selalu siap mendengarkan setiap visi Anda. Mulai dari perancangan konsep kreatif hingga eksekusi matang di lapangan, kami adalah pilar utama yang memastikan setiap momen kebersamaan Anda menjadi sebuah pengalaman yang luar biasa.",
     "list": [
       {
         "name": "Wahyu Prabowo",
@@ -117,40 +117,41 @@
     ]
   },
   "clients": {
-    "title": "Klien Kami",
-    "description": "Brand-brand berpikiran maju mempercayai F-Travel untuk memberikan perjalanan yang luar biasa. Kami bermitra dengan perusahaan terkemuka untuk memberikan pengalaman perjalanan terbaik bagi Anda."
+    "title": "KLIEN KAMI",
+    "description": "Kepercayaan dari berbagai perusahaan dan institusi terkemuka adalah pencapaian terbesar kami. F-Travel hadir menerjemahkan visi mereka menjadi rangkaian perjalanan dan event yang luar biasa. Dengan menjaga standar kualitas tinggi serta ketelitian pada setiap detail kecil, kami bangga terus menjadi mitra tepercaya yang selalu dapat diandalkan."
   },
   "testimonials": {
     "subtitle": "Kisah Sukses",
     "title": "Apa Kata Klien Kami",
-    "description": "Baca kisah nyata dari outing perusahaan dan gathering yang dikelola oleh F-Travel di berbagai destinasi terbaik."
+    "description": "Bagi kami, setiap tantangan adalah kesempatan untuk memberikan pelayanan terbaik. Mulai dari sejuknya pegunungan, eksotisme pantai, hingga perjalanan antarnegara, kami berkomitmen melahirkan senyuman di akhir cerita. Jelajahi kisah sukses kolaborasi kami bersama brand-brand hebat yang terus memercayakan agenda perjalanan, meeting, dan outing perusahaannya bersama kami."
   },
   "about": {
     "mission": {
       "tag": "Misi Kami",
       "title": "Menciptakan Perjalanan yang Menginspirasi",
       "points": [
-        "Memberikan kualitas layanan yang luar biasa.",
-        "Menyesuaikan solusi dengan kebutuhan unik klien.",
-        "Memastikan keamanan dan kenyamanan setiap saat.",
-        "Membangun kemitraan jangka panjang berdasarkan kepercayaan."
+        "Memberikan Kualitas Luar Biasa: Menyajikan eksekusi program yang rapi, responsif, dan melampaui ekspektasi pelanggan.",
+        "Personalisasi Kebutuhan Klien: Merancang konsep perjalanan dan pertemuan yang adaptif sesuai visi dan budaya perusahaan Anda.",
+        "Prioritas Keamanan & Kenyamanan: Menjaga standar keselamatan tertinggi demi menghadirkan ketenangan pikiran di setiap momen kebersamaan.",
+        "Membentuk Kemitraan Berkelanjutan: Menjadi mitra strategis yang tepercaya untuk segala kebutuhan agenda korporasi secara konsisten"
       ],
-      "description": "Menjadi mitra perjalanan terpercaya yang memahami tujuan unik setiap pelanggan, merangkai pengalaman yang berkesan dan bernilai di setiap momen kebersamaan yang dibagikan bersama tim kami."
+      "description": "Dalam mewujudkan komitmen sebagai mitra tepercaya, F-Travel mendedikasikan seluruh keahlian terbaiknya untuk:"
     },
     "vision": {
       "tag": "Visi Kami",
-      "title": "Penyedia Layanan Perjalanan Unggulan",
+      "title": "Penyedia Layanan Perjalanan & Event Unggulan",
       "points": [
-        "Menjadi pilihan utama untuk perjalanan perusahaan.",
-        "Terus berinovasi dalam penawaran layanan kami.",
-        "Memperluas jangkauan global kami dengan keahlian lokal."
+        "Memberikan Kualitas Luar Biasa: Menyajikan eksekusi program yang rapi, responsif, dan melampaui ekspektasi pelanggan.",
+        "Personalisasi Kebutuhan Klien: Merancang konsep perjalanan dan pertemuan yang adaptif sesuai visi dan budaya perusahaan Anda.",
+        "Prioritas Keamanan & Kenyamanan: Menjaga standar keselamatan tertinggi demi menghadirkan ketenangan pikiran di setiap momen kebersamaan.",
+        "Membentuk Kemitraan Berkelanjutan: Menjadi mitra strategis yang tepercaya untuk segala kebutuhan agenda korporasi secara konsisten."
       ],
-      "description": "F-Travel berkomitmen untuk menyediakan layanan perjalanan dan acara yang nyaman, aman, dan menyenangkan melalui tim yang profesional dan berpengalaman. Kami menyajikan berbagai macam tur, outing perusahaan, team building, dan program khusus yang beragam, terjangkau, dan berkesan bagi setiap pelanggan."
+      "description": "Untuk mencapai posisi sebagai mitra strategis utama, F-Travel berkomitmen penuh untuk:"
     },
     "hero": {
       "subtitle": "Kenali Kami",
       "title": "Tentang F-Travel",
-      "description": "Penyelenggara Tur, Konsultan Perjalanan, dan Perencana Acara yang berdedikasi untuk merancang perjalanan global yang tak terlupakan."
+      "description": "Penyelenggara Tur, Konsultan Perjalanan, dan Perencana Acara profesional yang berdedikasi penuh untuk mentransformasi setiap agenda perjalanan perusahaan Anda menjadi sebuah pengalaman yang tak terlupakan."
     },
     "quote": "\"Menghubungkan orang dengan keindahan dunia dan merajut kebersamaan melalui perjalanan yang aman, terencana dengan baik, dan berkesan.\"",
     "features": [
@@ -161,19 +162,24 @@
     "profileTag": "Profil Perusahaan",
     "whyChooseUs": {
       "title": "Mengapa Memilih Kami?",
-      "description": "Temukan alasan mengapa ratusan klien mempercayakan perjalanan mereka kepada F-Travel.",
+      "desc1": "Perjalanan yang baik dimulai dari partner yang tepat.",
+      "desc2": "Bagi kami, F-Travel bukan hanya penyedia layanan, melainkan teman perjalanan yang memahami setiap klien memiliki tujuan dan cerita berbeda. Dengan pengalaman di berbagai jenis trip dan event, kami hadir dengan pendekatan fleksibel, pelayanan maksimal, dan konsep segar. Kami mendengarkan, merancang, dan mengeksekusi setiap program dengan perhatian penuh pada detail, agar setiap momen kebersamaan menjadi lebih bermakna.",
       "items": [
         {
-          "title": "Keamanan & Legalitas",
-          "desc": "Beroperasi di bawah entitas hukum resmi PT Dua Rasi Nusantara, memastikan transaksi dan perjalanan Anda aman dan terlindungi secara hukum."
+          "title": "Profesional",
+          "desc": "Kami memiliki tim yang berpengalaman dan berdedikasi tinggi dalam merancang serta mengelola perjalanan wisata dan event dengan pelayanan terbaik."
         },
         {
-          "title": "Tim Berpengalaman",
-          "desc": "Didukung oleh Tour Leader dan Event Planner profesional yang menguasai lapangan, memastikan kenyamanan maksimal dan kelancaran eksekusi di lokasi."
+          "title": "Innovative",
+          "desc": "Kami terus menghadirkan ide-ide segar dan kreatif dalam setiap program perjalanan yang kami tawarkan."
         },
         {
-          "title": "Program Fleksibel",
-          "desc": "Dari persyaratan anggaran hingga detail rencana perjalanan, semuanya dapat disesuaikan secara fleksibel untuk memenuhi kebutuhan operasional unik tim Anda."
+          "title": "Trusted",
+          "desc": "Didukung legalitas resmi dan jaringan partner yang luas, kami selalu menjaga kepercayaan klien dengan layanan yang transparan, konsisten, dan dapat diandalkan."
+        },
+        {
+          "title": "Sustainable",
+          "desc": "Kami berkomitmen mendukung pariwisata berkelanjutan dengan mengedepankan tanggung jawab sosial serta kepedulian terhadap lingkungan dan komunitas lokal."
         }
       ]
     },
@@ -189,9 +195,9 @@
         "cert": "Sertifikat Standar Operasional"
       }
     },
-    "title": "Profesionalisme Tinggi dengan Sentuhan Personal",
-    "desc1": "F-Travel adalah Tour Organizer, Konsultan Perjalanan, dan Perencana Acara berbasis di Yogyakarta yang memberikan layanan perjalanan dengan standar profesional dan sentuhan personal. Berbekal pengalaman luas dalam pariwisata domestik dan internasional, serta Acara Perusahaan seperti Rapat, Gathering, perjalanan Outbound, dan program minat khusus, kami dipercaya oleh berbagai klien dari perusahaan swasta, BUMN, hingga pelancong perorangan.",
-    "desc2": "Kami memahami bahwa setiap perjalanan membawa cerita dan tujuannya masing-masing. Oleh karena itu, dengan komitmen kuat terhadap kualitas, fleksibilitas, dan kreativitas, F-Travel selalu siap memberikan pengalaman terbaik dan tak terlupakan di setiap perjalanan yang kami rancang."
+    "title": "Profesionalisme Tinggi dengan Layanan Adaptif",
+    "desc1": "F-Travel adalah Tour Organizer, Travel Consultant, dan Event Planner berbasis di Yogyakarta yang menghadirkan solusi perjalanan dengan standar pelayanan prima. Berbekal pengalaman luas dalam mengelola pariwisata domestik maupun internasional, serta berbagai Corporate Event, seperti Meeting (MICE), Gathering, program Outbound, hingga minat khusus, kami telah dipercaya oleh berbagai perusahaan swasta, BUMN, hingga perjalanan personal.",
+    "desc2": "Kami memahami bahwa setiap perjalanan membawa cerita, esensi, dan tujuannya masing-masing. Oleh karena itu, dengan komitmen kuat pada kualitas, fleksibilitas, dan kreativitas, F-Travel selalu siap memberikan pengalaman terbaik yang dipersonalisasi khusus demi kenyamanan dan momen tak terlupakan Anda."
   },
   "contact": {
     "hero": {
@@ -246,7 +252,7 @@
     "hero": {
       "tag": "Rekam Jejak",
       "title": "Portofolio Perusahaan Kami",
-      "description": "Jelajahi rekam jejak ekstensif kami dalam menyelenggarakan outing perusahaan premium, team building berdampak tinggi, konferensi MICE, dan tur edukasi di seluruh Indonesia dan sekitarnya."
+      "description": "Jelajahi rekam jejak kami dalam merancang dan mengeksekusi rangkaian corporate outing, program team building, konferensi MICE, serta paket wisata di berbagai destinasi populer Indonesia dan luar negeri."
     },
     "stats": {
       "events": "Acara Berhasil Dilaksanakan",
@@ -273,10 +279,19 @@
       "verified": "Perjalanan Terverifikasi"
     }
   },
+  "portfolioDetail": {
+    "back": "Kembali ke Portofolio",
+    "overview": "Ringkasan Proyek",
+    "client": "Klien",
+    "category": "Kategori",
+    "location": "Lokasi",
+    "year": "Tahun",
+    "gallery": "Galeri Acara"
+  },
   "gallery": {
     "hero": {
       "title": "Galeri Perjalanan",
-      "description": "Jelajahi momen menakjubkan yang diabadikan oleh para wisatawan kami di seluruh dunia."
+      "description": "Setiap foto membawa cerita. Jelajahi kumpulan dokumentasi nyata yang menangkap setiap detail perjalanan, kolaborasi tim, dan momen-momen tak terlupakan dari para mitra tepercaya kami."
     },
     "all": "Semua",
     "empty": "Tidak ada gambar yang diunggah di kategori ini."
@@ -284,7 +299,7 @@
   "blog": {
     "hero": {
       "title": "Blog Perjalanan",
-      "description": "Wawasan, tips, dan inspirasi untuk perjalanan Anda berikutnya."
+      "description": "Temukan beragam informasi wisata untuk outing kantor, serta tips esensial yang dikurasi khusus untuk menginspirasi sekaligus mempermudah perencanaan perjalanan perusahaan Anda."
     },
     "empty": "Tidak ada postingan blog ditemukan. Silakan periksa kembali nanti.",
     "author": "Tim F Travel"

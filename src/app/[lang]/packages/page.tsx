@@ -17,7 +17,8 @@ export default async function PortfolioPage({ params }: { params: Promise<{ lang
 
   const projects = await prisma.portfolioProject.findMany({
     where: { status: "PUBLISHED" },
-    orderBy: { year: "desc" }
+    orderBy: { year: "desc" },
+    include: { images: true }
   });
 
   return <PortfolioClient initialProjects={projects} dict={dict} />;

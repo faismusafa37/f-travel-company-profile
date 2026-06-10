@@ -162,9 +162,25 @@ export function OurTeam({ members = [], dict }: { members?: MemberProp[], dict?:
 
         {/* Team Grid or Slider */}
 
-        {/* Mobile & Tablet: Always Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
-          {displayMembers.map((member, i) => renderMemberCard(member, i, false))}
+        {/* Mobile & Tablet: Marquee Slider (animasi jalan) */}
+        <div className="lg:hidden relative flex overflow-hidden py-4 mask-gradient max-w-[100vw] -mx-4 px-4 sm:-mx-6 sm:px-6">
+          <div 
+            className="flex flex-row flex-nowrap w-max hover:[animation-play-state:paused] cursor-pointer"
+            style={{ animation: 'marquee-left 30s linear infinite' }}
+          >
+            {/* Set 1 */}
+            <div className="flex gap-6 pr-6">
+              {displayMembers.map((member, i) => 
+                renderMemberCard(member, i, true)
+              )}
+            </div>
+            {/* Set 2 */}
+            <div className="flex gap-6 pr-6">
+              {displayMembers.map((member, i) => 
+                renderMemberCard(member, i, true)
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Desktop: Grid if <= 4, Slider if > 4 */}
@@ -176,12 +192,21 @@ export function OurTeam({ members = [], dict }: { members?: MemberProp[], dict?:
           ) : (
             <div className="relative flex overflow-hidden py-4 mask-gradient max-w-[100vw] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
               <div 
-                className="flex flex-row flex-nowrap w-max gap-8 hover:[animation-play-state:paused] cursor-pointer"
+                className="flex flex-row flex-nowrap w-max hover:[animation-play-state:paused] cursor-pointer"
                 style={{ animation: 'marquee-left 50s linear infinite' }}
               >
-                {[...displayMembers, ...displayMembers].map((member, i) => 
-                  renderMemberCard(member, i, true)
-                )}
+                {/* Set 1 */}
+                <div className="flex gap-8 pr-8">
+                  {displayMembers.map((member, i) => 
+                    renderMemberCard(member, i, true)
+                  )}
+                </div>
+                {/* Set 2 */}
+                <div className="flex gap-8 pr-8">
+                  {displayMembers.map((member, i) => 
+                    renderMemberCard(member, i, true)
+                  )}
+                </div>
               </div>
             </div>
           )}

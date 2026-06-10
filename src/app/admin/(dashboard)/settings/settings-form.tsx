@@ -20,9 +20,8 @@ const settingsSchema = z.object({
   whatsapp: z.string().min(2, "WhatsApp number is required"),
   address: z.string().min(2, "Address is required"),
   seo_description: z.string().min(10, "SEO description must be at least 10 characters"),
-  facebook: z.string().optional().nullable(),
   instagram: z.string().optional().nullable(),
-  twitter: z.string().optional().nullable(),
+  youtube: z.string().optional().nullable(),
 });
 
 type FormValues = z.infer<typeof settingsSchema>;
@@ -47,9 +46,8 @@ export function SettingsForm({ settingsMap }: SettingsFormProps) {
       whatsapp: settingsMap['whatsapp'] || "6281234567890",
       address: settingsMap['address'] || "Jakarta, Indonesia",
       seo_description: settingsMap['seo_description'] || "Premium travel experiences for corporate outings, team buildings, and family gatherings.",
-      facebook: settingsMap['facebook'] || "",
       instagram: settingsMap['instagram'] || "",
-      twitter: settingsMap['twitter'] || "",
+      youtube: settingsMap['youtube'] || "",
     },
   });
 
@@ -64,9 +62,8 @@ export function SettingsForm({ settingsMap }: SettingsFormProps) {
         whatsapp: data.whatsapp,
         address: data.address,
         seo_description: data.seo_description,
-        facebook: data.facebook || "",
         instagram: data.instagram || "",
-        twitter: data.twitter || "",
+        youtube: data.youtube || "",
       };
 
       const res = await saveSettingsAction(record);
@@ -167,18 +164,14 @@ export function SettingsForm({ settingsMap }: SettingsFormProps) {
                 <p className="text-xs text-red-500 font-semibold">{errors.seo_description.message}</p>
               )}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="facebook">Facebook URL</Label>
-                <Input id="facebook" placeholder="https://facebook.com/..." {...register("facebook")} />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="instagram">Instagram URL</Label>
                 <Input id="instagram" placeholder="https://instagram.com/..." {...register("instagram")} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="twitter">Twitter URL</Label>
-                <Input id="twitter" placeholder="https://twitter.com/..." {...register("twitter")} />
+                <Label htmlFor="youtube">YouTube URL</Label>
+                <Input id="youtube" placeholder="https://youtube.com/..." {...register("youtube")} />
               </div>
             </div>
           </CardContent>

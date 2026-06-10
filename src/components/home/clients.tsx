@@ -268,17 +268,7 @@ export function ClientsSlider({ clients = [], dict }: { clients?: DBClient[], di
     };
   });
 
-  const renderLogo = (client: any) => {
-    if (client.logoUrl) {
-      return (
-        <img 
-          src={client.logoUrl} 
-          alt={client.name} 
-          className="w-10 h-10 rounded-xl object-cover shadow-inner shrink-0" 
-        />
-      );
-    }
-    
+  const renderFallbackLogo = (client: any) => {
     const bg = client.bgColor || "from-orange-500 to-amber-600";
     const text = client.textColor || "text-white";
     const initials = client.logoText || client.name.substring(0, 2).toUpperCase();
@@ -297,18 +287,32 @@ export function ClientsSlider({ clients = [], dict }: { clients?: DBClient[], di
 
     return (
       <div className="relative flex overflow-hidden py-3">
-        <div className={`${marqueeClass} flex gap-6 hover:[animation-play-state:paused] cursor-pointer`}>
-          {items.map((client, index) => (
-            <div
-              key={`${client.id}-${index}`}
-              className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] select-none hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:-translate-y-[1px] transition-all duration-300 shrink-0"
-            >
-              {renderLogo(client)}
-              <span className="font-bold text-slate-800 tracking-tight text-base pr-1 shrink-0">
-                {client.name}
-              </span>
-            </div>
-          ))}
+        <div className={`${marqueeClass} flex gap-4 sm:gap-6 hover:[animation-play-state:paused] cursor-pointer`}>
+          {items.map((client, index) => {
+            const hasLogo = !!client.logoUrl;
+
+            return (
+              <div
+                key={`${client.id}-${index}`}
+                className={`flex items-center justify-center bg-white rounded-2xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] select-none hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 w-[160px] sm:w-[200px] shrink-0 ${hasLogo ? 'h-20 sm:h-24 px-4 sm:px-8 py-4' : 'h-20 sm:h-24 px-4 sm:px-6 py-4 gap-3'}`}
+              >
+                {hasLogo ? (
+                  <img 
+                    src={client.logoUrl!} 
+                    alt={client.name} 
+                    className="max-w-full max-h-full object-contain" 
+                  />
+                ) : (
+                  <>
+                    {renderFallbackLogo(client)}
+                    <span className="font-bold text-slate-800 tracking-tight text-xs sm:text-sm leading-tight text-left truncate">
+                      {client.name}
+                    </span>
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     );
@@ -320,8 +324,8 @@ export function ClientsSlider({ clients = [], dict }: { clients?: DBClient[], di
   const row3 = displayClients.filter((_, i) => i % 3 === 2);
 
   return (
-    <section className="pt-20 md:pt-28 pb-16 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+    <section className="pt-20 md:pt-28 pb-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 md:mb-16">
         <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
           {dict?.clients?.title || "Our Clients"}
         </h2>

@@ -48,7 +48,7 @@ const TypewriterText = ({ text }: { text: string }) => {
         visible: { transition: { staggerChildren: 0.05, delayChildren: 0.5 } },
         hidden: {},
       }}
-      className="inline-block font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-amber-300 to-rose-500 drop-shadow-md"
+      className="inline-block font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 drop-shadow-md"
     >
       {chars.map((char, index) => (
         <motion.span
@@ -158,7 +158,7 @@ export function Hero({
 
   return (
     <>
-      <div className="relative h-[60vh] md:h-[65vh] min-h-[400px] max-h-[600px] w-full flex flex-col justify-between bg-slate-950 text-white rounded-b-[2rem] md:rounded-b-[3rem]">
+      <div className="relative h-[60vh] md:h-[65vh] min-h-[400px] max-h-[600px] w-full flex flex-col justify-between bg-blue-950 text-white rounded-b-[2rem] md:rounded-b-[3rem]">
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden rounded-b-[2rem] md:rounded-b-[3rem]">
         <video
@@ -174,7 +174,7 @@ export function Hero({
           src={video}
         />
         {/* Soft overlay gradient to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-800/40 to-blue-900/60 z-0" />
       </div>
 
       {/* Main Content Area */}
