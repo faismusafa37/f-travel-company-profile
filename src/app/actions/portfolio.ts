@@ -37,7 +37,7 @@ export async function createPortfolioProjectAction(data: z.infer<typeof portfoli
       }
     });
 
-    revalidatePath("/packages");
+    revalidatePath("/portfolio");
     revalidatePath("/admin/portfolio");
     revalidatePath("/gallery");
     return { success: true, project };
@@ -82,7 +82,7 @@ export async function updatePortfolioProjectAction(id: string, data: z.infer<typ
       }
     }
 
-    revalidatePath("/packages");
+    revalidatePath("/portfolio");
     revalidatePath("/admin/portfolio");
     revalidatePath("/gallery");
     return { success: true, project };
@@ -101,7 +101,7 @@ export async function deletePortfolioProjectAction(id: string) {
       where: { id }
     });
 
-    revalidatePath("/packages");
+    revalidatePath("/portfolio");
     revalidatePath("/admin/portfolio");
     return { success: true };
   } catch (error) {
@@ -123,7 +123,7 @@ export async function togglePortfolioProjectStatusAction(id: string) {
       data: { status: newStatus }
     });
 
-    revalidatePath("/packages");
+    revalidatePath("/portfolio");
     revalidatePath("/admin/portfolio");
     return { success: true, status: newStatus };
   } catch (error) {

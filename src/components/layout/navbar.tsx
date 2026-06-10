@@ -24,7 +24,7 @@ export function Navbar({ lang = "id", dict }: { lang?: "id" | "en", dict?: any }
   const navLinks = [
     { href: `/${lang}`, label: d.home },
     { href: `/${lang}/about`, label: d.about },
-    { href: `/${lang}/packages`, label: d.portfolio },
+    { href: `/${lang}/portfolio`, label: d.portfolio },
     { href: `/${lang}/gallery`, label: d.gallery },
     { href: `/${lang}/blog`, label: d.blog },
   ];

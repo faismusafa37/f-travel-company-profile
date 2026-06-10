@@ -65,7 +65,7 @@ export function Footer({ settings = {}, lang = "id", dict }: { settings?: Record
                 </Link>
               </li>
               <li>
-                <Link href={`/${lang}/packages`} className="hover:text-orange-500 transition-colors flex items-center gap-1">
+                <Link href={`/${lang}/portfolio`} className="hover:text-orange-500 transition-colors flex items-center gap-1">
                   Portfolio
                 </Link>
               </li>

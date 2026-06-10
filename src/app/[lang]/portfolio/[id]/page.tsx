@@ -35,7 +35,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         <div className="absolute inset-0 bg-slate-900/60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex flex-col justify-end pb-12">
           
-          <Link href={`/${lang}/packages`} className="inline-flex items-center text-slate-300 hover:text-white mb-6 transition-colors">
+          <Link href={`/${lang}/portfolio`} className="inline-flex items-center text-slate-300 hover:text-white mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {dict?.portfolioDetail?.back || "Back to Portfolio"}
           </Link>
