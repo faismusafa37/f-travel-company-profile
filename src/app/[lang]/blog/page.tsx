@@ -1,8 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export const metadata = {
   title: "Blog | F-Travel",

@@ -1,7 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+
 import { PortfolioClient } from "./portfolio-client";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export const metadata = {
   title: "Corporate Outing Portfolio | F-Travel Organizer",

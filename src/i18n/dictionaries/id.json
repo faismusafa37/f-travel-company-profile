@@ -60,32 +60,32 @@
       {
         "tag": "Perjalanan Bisnis",
         "title": "Outing Perusahaan",
-        "description": "Berikan apresiasi terbaik bagi dedikasi tim Anda melalui perjalanan insentif yang menyegarkan. Kami mengombinasikan pemilihan destinasi inspiratif, akomodasi ideal, dan manajemen logistik yang matang untuk mengisi ulang energi, memicu kreativitas, serta membangun perspektif baru yang lebih segar bagi perusahaan Anda."
+        "description": "Perjalanan insentif menyegarkan dengan destinasi inspiratif dan logistik matang untuk mengisi ulang energi dan memicu kreativitas tim Anda."
       },
       {
         "tag": "Sinergi Tim",
         "title": "Team Building & Outbound",
-        "description": "Bukan sekadar bermain, kami menghadirkan rangkaian icebreaker penuh aksi, simulasi interaktif, dan tantangan kolaboratif. Dirancang khusus menggunakan metode experiential learning untuk mencairkan suasana, membangun rasa saling percaya, dan memperkuat kerja sama tim antar divisi secara nyata."
+        "description": "Simulasi interaktif dan tantangan kolaboratif untuk membangun rasa saling percaya serta memperkuat kerja sama tim antar divisi."
       },
       {
         "tag": "Perayaan & Pencapaian",
         "title": "Gala Dinner & Corporate Celebration",
-        "description": "Rayakan pencapaian dan perjalanan sukses perusahaan Anda dengan penuh gaya. Kami mewujudkan malam penghargaan yang prestisius melalui konsep tematik yang elegan, pementasan visual yang memukau, sajian istimewa, serta manajemen panggung yang presisi demi memberikan impresi mendalam bagi seluruh tamu."
+        "description": "Malam penghargaan prestisius dengan konsep tematik elegan, visual memukau, dan sajian istimewa untuk merayakan pencapaian perusahaan Anda."
       },
       {
         "tag": "Eksekutif & Bisnis Profesional",
         "title": "Corporate Meeting & Conference",
-        "description": "Fokus pada keputusan strategis bisnis Anda, dan biarkan kami yang mengelola detailnya. Kami menyediakan solusi manajemen konferensi yang profesional, mulai dari penataan ruang rapat yang representatif, penyediaan perangkat audiovisual kelas atas, hingga koordinasi logistik yang mulus demi kelancaran agenda penting Anda."
+        "description": "Solusi manajemen konferensi profesional dengan perangkat kelas atas dan koordinasi logistik yang mulus untuk agenda strategis Anda."
       },
       {
         "tag": "Produksi Panggung & Hiburan Live",
         "title": "Event Production & Show Management",
-        "description": "Ubah konsep kreatif Anda menjadi sebuah pertunjukan panggung berskala penuh yang spektakuler. Didukung oleh tim show management berpengalaman, kami mengelola tata pencahayaan (lighting), efek suara, koreografi, hingga sinkronisasi panggung secara langsung (live production) untuk memastikan acara Anda berjalan megah tanpa cela."
+        "description": "Pertunjukan panggung spektakuler dengan manajemen pencahayaan, efek suara, dan koreografi profesional agar acara berjalan megah tanpa cela."
       },
       {
         "tag": "Edukasi & Eksplorasi Pengetahuan",
         "title": "Study Tour & Field Trip",
-        "description": "Ubah metode pembelajaran menjadi petualangan edukatif yang interaktif di luar kelas. Kami merancang perjalanan studi dan kunjungan lapangan (field trip) yang memadukan unsur edukasi kurikulum dengan eksplorasi budaya, sains, serta alam. Dikemas secara aman, edukatif, dan menyenangkan untuk merangsang rasa ingin tahu serta memperluas wawasan para siswa maupun akademisi."
+        "description": "Petualangan edukatif interaktif yang memadukan eksplorasi budaya, sains, dan alam untuk merangsang rasa ingin tahu siswa secara menyenangkan."
       }
     ]
   },
@@ -141,19 +141,19 @@
       "tag": "Visi Kami",
       "title": "Penyedia Layanan Perjalanan & Event Unggulan",
       "points": [
-        "Memberikan Kualitas Luar Biasa: Menyajikan eksekusi program yang rapi, responsif, dan melampaui ekspektasi pelanggan.",
-        "Personalisasi Kebutuhan Klien: Merancang konsep perjalanan dan pertemuan yang adaptif sesuai visi dan budaya perusahaan Anda.",
-        "Prioritas Keamanan & Kenyamanan: Menjaga standar keselamatan tertinggi demi menghadirkan ketenangan pikiran di setiap momen kebersamaan.",
-        "Membentuk Kemitraan Berkelanjutan: Menjadi mitra strategis yang tepercaya untuk segala kebutuhan agenda korporasi secara konsisten."
+        "Menjadi Pilihan Utama Perjalanan Korporat: Menjadi vendor tepercaya dan rekomendasi nomor satu bagi perusahaan swasta, BUMN, maupun instansi dalam mengelola agenda corporate outing, meeting, dan gathering.",
+        "Menghadirkan Solusi Terintegrasi & Variatif: Menyajikan rangkaian program yang lengkap dan adaptif, mulai dari paket wisata, team building, hingga program minat khusus yang dirancang sesuai kebutuhan unik klien.",
+        "Menjamin Eksekusi Prima Berstandar Tinggi: Menyediakan layanan perjalanan dan event yang aman, nyaman, dan menyenangkan melalui dukungan penuh tim profesional yang ahli dan berpengalaman di lapangan.",
+        "Memberikan Nilai Lebih yang Berkesan: Memastikan setiap program yang dihadirkan tidak hanya kompetitif dan terjangkau, tetapi juga mampu memberikan impresi mendalam serta merajut kebersamaan yang kuat bagi setiap peserta."
       ],
       "description": "Untuk mencapai posisi sebagai mitra strategis utama, F-Travel berkomitmen penuh untuk:"
     },
     "hero": {
       "subtitle": "Kenali Kami",
       "title": "Tentang F-Travel",
-      "description": "Menghubungkan orang dengan keindahan dunia dan merajut kebersamaan melalui perjalanan yang aman, terencana dengan baik, dan berkesan."
+      "description": "Penyelenggara Tur, Konsultan Perjalanan, dan Perencana Acara profesional yang berdedikasi penuh untuk mentransformasi setiap agenda perjalanan perusahaan Anda menjadi sebuah pengalaman yang tak terlupakan."
     },
-    "quote": "\"Menghubungkan orang dengan keindahan dunia dan merajut kebersamaan melalui perjalanan yang aman, terencana dengan baik, dan berkesan.\"",
+    "quote": "\"Penyelenggara Tur, Konsultan Perjalanan, dan Perencana Acara profesional yang berdedikasi penuh untuk mentransformasi setiap agenda perjalanan perusahaan Anda menjadi sebuah pengalaman yang tak terlupakan.\"",
     "features": [
       "100% Legal & Terdaftar Resmi",
       "Berbasis di Yogyakarta",

@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { TeamDashboard } from "./team-dashboard";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminTeamPage() {
   const members = await prisma.teamMember.findMany({
@@ -18,3 +17,4 @@ export default async function AdminTeamPage() {
     </div>
   );
 }
+

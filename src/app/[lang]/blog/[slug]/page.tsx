@@ -1,9 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Calendar, User } from "lucide-react";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";

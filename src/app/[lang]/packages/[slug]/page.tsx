@@ -1,10 +1,10 @@
-import { PrismaClient } from "@prisma/client";
+
 import { MapPin, Calendar, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

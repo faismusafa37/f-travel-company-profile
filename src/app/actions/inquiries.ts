@@ -1,11 +1,10 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const inquirySchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -226,3 +225,4 @@ export async function markInquiryReadAction(id: string) {
     return { success: false, error: "Failed to update inquiry status" };
   }
 }
+

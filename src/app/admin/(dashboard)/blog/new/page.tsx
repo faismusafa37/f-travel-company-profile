@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { NewBlogForm } from "./new-form";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function NewBlogPostPage() {
   // Query all blog categories
@@ -11,3 +10,4 @@ export default async function NewBlogPostPage() {
 
   return <NewBlogForm categories={categories} />;
 }
+

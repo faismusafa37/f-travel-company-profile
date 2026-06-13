@@ -1,8 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+
 import { notFound } from "next/navigation";
 import { EditDestinationForm } from "./edit-form";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function EditDestinationPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;

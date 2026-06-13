@@ -20,7 +20,7 @@ interface DestinationItem {
 }
 
 export function DestinationsTable({ initialDestinations }: { initialDestinations: DestinationItem[] }) {
-  const router = useRouter();
+  const [destinations, setDestinations] = useState(initialDestinations);
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
   const handleDelete = async (id: string) => {
@@ -30,7 +30,7 @@ export function DestinationsTable({ initialDestinations }: { initialDestinations
       const res = await deleteDestinationAction(id);
       if (res.success) {
         toast.success("Destination deleted successfully");
-        router.refresh();
+        setDestinations(prev => prev.filter(d => d.id !== id));
       } else {
         toast.error(res.error || "Failed to delete destination");
       }
@@ -47,7 +47,7 @@ export function DestinationsTable({ initialDestinations }: { initialDestinations
       const res = await toggleDestinationStatusAction(id);
       if (res.success) {
         toast.success(`Destination status updated to ${res.status}`);
-        router.refresh();
+        setDestinations(prev => prev.map(d => d.id === id ? { ...d, status: res.status as string } : d));
       } else {
         toast.error(res.error || "Failed to toggle status");
       }
@@ -71,14 +71,14 @@ export function DestinationsTable({ initialDestinations }: { initialDestinations
           </TableRow>
         </TableHeader>
         <TableBody>
-          {initialDestinations.length === 0 ? (
+          {destinations.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} className="text-center py-8 text-slate-500">
                 No destinations found. Create one to get started.
               </TableCell>
             </TableRow>
           ) : (
-            initialDestinations.map((dest) => (
+            destinations.map((dest) => (
               <TableRow key={dest.id} className={isLoading === dest.id ? "opacity-50 pointer-events-none" : ""}>
                 <TableCell className="font-medium text-slate-900">{dest.title}</TableCell>
                 <TableCell>{dest.city}, {dest.country}</TableCell>

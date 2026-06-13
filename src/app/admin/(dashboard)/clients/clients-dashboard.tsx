@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -47,6 +47,19 @@ export function ClientsDashboard({ initialClients }: { initialClients: ClientIte
   const [isActionLoading, setIsActionLoading] = useState<string | null>(null);
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const [logoFile, setLogoFile] = useState<File | null>(null);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const totalPages = Math.max(1, Math.ceil(initialClients.length / itemsPerPage));
+  const validCurrentPage = Math.min(currentPage, totalPages);
+  const paginatedClients = initialClients.slice((validCurrentPage - 1) * itemsPerPage, validCurrentPage * itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [initialClients.length, currentPage, totalPages]);
 
   const {
     register,
@@ -328,14 +341,14 @@ export function ClientsDashboard({ initialClients }: { initialClients: ClientIte
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {initialClients.length === 0 ? (
+                {paginatedClients.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={5} className="text-center py-8 text-slate-500">
                       No clients found.
                     </TableCell>
                   </TableRow>
                 ) : (
-                  initialClients.map((client) => (
+                  paginatedClients.map((client) => (
                     <TableRow 
                       key={client.id} 
                       className={isActionLoading === client.id ? "opacity-50 pointer-events-none" : ""}
@@ -385,6 +398,40 @@ export function ClientsDashboard({ initialClients }: { initialClients: ClientIte
               </TableBody>
             </Table>
           </div>
+          
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-4 py-3 border-t border-slate-100 bg-slate-50/50">
+              <div className="text-xs text-slate-500">
+                Showing <span className="font-medium">{(validCurrentPage - 1) * itemsPerPage + 1}</span> to <span className="font-medium">{Math.min(validCurrentPage * itemsPerPage, initialClients.length)}</span> of <span className="font-medium">{initialClients.length}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={validCurrentPage === 1}
+                  className="h-8 text-xs px-3"
+                >
+                  Prev
+                </Button>
+                <div className="text-xs font-medium px-1">
+                  Page {validCurrentPage} of {totalPages}
+                </div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={validCurrentPage === totalPages}
+                  className="h-8 text-xs px-3"
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

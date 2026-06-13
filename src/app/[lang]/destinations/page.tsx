@@ -1,9 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export const metadata = {
   title: "Destinations | F-Travel",

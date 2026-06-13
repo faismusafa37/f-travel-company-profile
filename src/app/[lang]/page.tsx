@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Calendar, ArrowRight, Star } from "lucide-react";
-import { PrismaClient } from "@prisma/client";
+
 import { Hero } from "@/components/home/hero";
 import { ClientsSlider } from "@/components/home/clients";
 import { OurServices } from "@/components/home/services";
@@ -14,7 +14,7 @@ import { FeaturedDestinationsSlider } from "@/components/home/featured-destinati
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

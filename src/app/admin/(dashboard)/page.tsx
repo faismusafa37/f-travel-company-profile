@@ -1,8 +1,7 @@
-import { PrismaClient } from "@prisma/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Map, Briefcase, FileText, MessageSquare, Settings } from "lucide-react";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminDashboardPage() {
   const [destinationsCount, packagesCount, blogCount, inquiriesCount] = await Promise.all([
@@ -101,3 +100,4 @@ export default async function AdminDashboardPage() {
     </div>
   );
 }
+

@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { GalleryDashboard } from "./gallery-dashboard";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminGalleryPage() {
   const images = await prisma.galleryImage.findMany({
@@ -28,3 +27,4 @@ export default async function AdminGalleryPage() {
     />
   );
 }
+

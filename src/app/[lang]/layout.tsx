@@ -6,12 +6,12 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingWhatsApp } from "@/components/layout/whatsapp-button";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
-import { PrismaClient } from "@prisma/client";
+
 import { getDictionary } from "@/i18n/get-dictionary";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 
 const inter = Inter({ subsets: ["latin"] });
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "F Travel #FindYourExperience",

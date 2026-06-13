@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+
 import { notFound } from "next/navigation";
 import { MapPin, Briefcase, Calendar, Image as ImageIcon, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ lang: string, id: string }> }) {
   const { lang, id } = await params;

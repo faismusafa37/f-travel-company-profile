@@ -1,11 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { BlogTable } from "./blog-table";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminBlogPage() {
   const posts = await prisma.blogPost.findMany({
@@ -33,3 +32,4 @@ export default async function AdminBlogPage() {
     </div>
   );
 }
+

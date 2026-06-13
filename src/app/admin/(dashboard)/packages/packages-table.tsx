@@ -22,7 +22,7 @@ interface PackageItem {
 }
 
 export function PackagesTable({ initialPackages }: { initialPackages: PackageItem[] }) {
-  const router = useRouter();
+  const [packages, setPackages] = useState(initialPackages);
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
   const handleDelete = async (id: string) => {
@@ -32,7 +32,7 @@ export function PackagesTable({ initialPackages }: { initialPackages: PackageIte
       const res = await deletePackageAction(id);
       if (res.success) {
         toast.success("Package deleted successfully");
-        router.refresh();
+        setPackages(prev => prev.filter(p => p.id !== id));
       } else {
         toast.error(res.error || "Failed to delete package");
       }
@@ -49,7 +49,7 @@ export function PackagesTable({ initialPackages }: { initialPackages: PackageIte
       const res = await togglePackageStatusAction(id);
       if (res.success) {
         toast.success(`Package status updated to ${res.status}`);
-        router.refresh();
+        setPackages(prev => prev.map(p => p.id === id ? { ...p, status: res.status as string } : p));
       } else {
         toast.error(res.error || "Failed to toggle status");
       }
@@ -74,14 +74,14 @@ export function PackagesTable({ initialPackages }: { initialPackages: PackageIte
           </TableRow>
         </TableHeader>
         <TableBody>
-          {initialPackages.length === 0 ? (
+          {packages.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6} className="text-center py-8 text-slate-500">
                 No travel packages found. Create one to get started.
               </TableCell>
             </TableRow>
           ) : (
-            initialPackages.map((pkg) => (
+            packages.map((pkg) => (
               <TableRow key={pkg.id} className={isLoading === pkg.id ? "opacity-50 pointer-events-none" : ""}>
                 <TableCell className="font-medium text-slate-900">{pkg.title}</TableCell>
                 <TableCell>{pkg.destination.title}</TableCell>

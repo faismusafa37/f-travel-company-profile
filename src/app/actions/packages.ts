@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const travelPackageSchema = z.object({
   title: z.string().min(2, "Title must be at least 2 characters"),
@@ -53,7 +52,7 @@ export async function createPackageAction(data: z.input<typeof travelPackageSche
 
     revalidatePath("/destinations");
     revalidatePath("/admin/packages");
-    return { success: true, travelPackage: pkg };
+    return { success: true, travelPackage: { ...pkg, price: Number(pkg.price) } };
   } catch (error) {
     console.error("Create package error:", error);
     if (error instanceof z.ZodError) {
@@ -100,7 +99,7 @@ export async function updatePackageAction(id: string, data: z.input<typeof trave
     revalidatePath(`/packages/${pkg.slug}`);
     revalidatePath("/destinations");
     revalidatePath("/admin/packages");
-    return { success: true, travelPackage: pkg };
+    return { success: true, travelPackage: { ...pkg, price: Number(pkg.price) } };
   } catch (error) {
     console.error("Update package error:", error);
     if (error instanceof z.ZodError) {
@@ -147,3 +146,4 @@ export async function togglePackageStatusAction(id: string) {
     return { success: false, error: "Failed to toggle status" };
   }
 }
+

@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { InquiriesList } from "./inquiries-list";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminInquiriesPage() {
   const inquiries = await prisma.contactInquiry.findMany({
@@ -18,3 +17,4 @@ export default async function AdminInquiriesPage() {
     </div>
   );
 }
+

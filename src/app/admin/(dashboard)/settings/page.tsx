@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { SettingsForm } from "./settings-form";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminSettingsPage() {
   const settings = await prisma.siteSetting.findMany();
@@ -14,3 +13,4 @@ export default async function AdminSettingsPage() {
 
   return <SettingsForm settingsMap={settingsMap} />;
 }
+

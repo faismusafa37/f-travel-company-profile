@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { Upload, Trash2, Edit, Loader2, Star } from "lucide-react";
+import { Upload, Trash2, Edit, Loader2, Star, ArrowLeft, ArrowRight } from "lucide-react";
 import { createTestimonialAction, updateTestimonialAction, deleteTestimonialAction, toggleTestimonialStatusAction } from "@/app/actions/testimonials";
 import { uploadImageAction } from "@/app/actions/upload";
 
@@ -44,12 +44,29 @@ interface TestimonialItem {
 }
 
 export function TestimonialsDashboard({ initialTestimonials }: { initialTestimonials: TestimonialItem[] }) {
+  const [testimonials, setTestimonials] = useState(initialTestimonials);
   const router = useRouter();
   const [editingTestimonial, setEditingTestimonial] = useState<TestimonialItem | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isActionLoading, setIsActionLoading] = useState<string | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+  
+  const paginatedTestimonials = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return testimonials.slice(startIndex, startIndex + itemsPerPage);
+  }, [testimonials, currentPage, itemsPerPage]);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   const {
     register,
@@ -150,8 +167,17 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
 
       if (res.success) {
         toast.success(editingTestimonial ? "Testimonial updated successfully" : "Testimonial created successfully");
+        
+        if (res.testimonial) {
+          if (editingTestimonial) {
+            setTestimonials(prev => prev.map(t => t.id === editingTestimonial.id ? res.testimonial : t));
+          } else {
+            setTestimonials(prev => [res.testimonial, ...prev]);
+          }
+        }
+
         handleCancelEdit();
-        router.refresh();
+        router.refresh(); // Keep for create/edit to ensure complete sync
       } else {
         toast.error(res.error || "Failed to save testimonial");
       }
@@ -169,7 +195,7 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
       const res = await deleteTestimonialAction(id);
       if (res.success) {
         toast.success("Testimonial deleted successfully");
-        router.refresh();
+        setTestimonials(prev => prev.filter(t => t.id !== id));
       } else {
         toast.error(res.error || "Failed to delete testimonial");
       }
@@ -186,7 +212,7 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
       const res = await toggleTestimonialStatusAction(id);
       if (res.success) {
         toast.success(`Testimonial status updated to ${res.status}`);
-        router.refresh();
+        setTestimonials(prev => prev.map(t => t.id === id ? { ...t, status: res.status as string } : t));
       } else {
         toast.error(res.error || "Failed to toggle status");
       }
@@ -347,11 +373,33 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
       </Card>
 
       {/* List Area */}
-      <Card className="border-0 shadow-sm lg:col-span-2 overflow-hidden">
-        <CardContent className="p-0">
-          <div className="overflow-x-auto w-full">
-            <Table>
-              <TableHeader className="bg-slate-50">
+      <div className="lg:col-span-2 space-y-4">
+        <div className="flex justify-end">
+          <Select 
+            defaultValue="10"
+            value={itemsPerPage.toString()} 
+            onValueChange={(val) => {
+              setItemsPerPage(Number(val));
+              setCurrentPage(1);
+            }}
+          >
+            <SelectTrigger className="w-[120px]">
+              <SelectValue placeholder="10 / page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="5">5 / page</SelectItem>
+              <SelectItem value="10">10 / page</SelectItem>
+              <SelectItem value="25">25 / page</SelectItem>
+              <SelectItem value="50">50 / page</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <Card className="border-0 shadow-sm overflow-hidden">
+          <CardContent className="p-0">
+            <div className="overflow-x-auto overflow-y-auto max-h-[500px] w-full relative">
+              <Table>
+                <TableHeader className="bg-slate-50 sticky top-0 z-10 shadow-sm">
                 <TableRow>
                   <TableHead>Client</TableHead>
                   <TableHead>Trip/Company</TableHead>
@@ -361,14 +409,14 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {initialTestimonials.length === 0 ? (
+                {paginatedTestimonials.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={5} className="text-center py-8 text-slate-500">
                       No testimonials found.
                     </TableCell>
                   </TableRow>
                 ) : (
-                  initialTestimonials.map((t) => (
+                  paginatedTestimonials.map((t) => (
                     <TableRow 
                       key={t.id} 
                       className={isActionLoading === t.id ? "opacity-50 pointer-events-none" : ""}
@@ -431,8 +479,36 @@ export function TestimonialsDashboard({ initialTestimonials }: { initialTestimon
               </TableBody>
             </Table>
           </div>
+          
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-between items-center p-4 border-t border-slate-100 bg-slate-50/50">
+              <p className="text-xs text-slate-500">
+                Showing {(currentPage-1)*itemsPerPage + 1} to {Math.min(currentPage*itemsPerPage, testimonials.length)} of {testimonials.length} records
+              </p>
+              <div className="flex gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <ArrowLeft className="w-4 h-4 mr-1" /> Prev
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  Next <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }

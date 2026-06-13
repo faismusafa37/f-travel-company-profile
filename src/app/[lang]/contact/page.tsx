@@ -1,8 +1,8 @@
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { ContactForm } from "./contact-form";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+
+import prisma from "@/lib/prisma";
 
 export const metadata = {
   title: "Contact Us | F-Travel",

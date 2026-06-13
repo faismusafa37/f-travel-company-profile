@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export async function POST(req: NextRequest) {
   try {
@@ -51,3 +50,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Failed to track visit" }, { status: 500 });
   }
 }
+

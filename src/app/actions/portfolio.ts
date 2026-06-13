@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const portfolioProjectSchema = z.object({
   client: z.string().min(2, "Client name must be at least 2 characters"),
@@ -131,3 +130,30 @@ export async function togglePortfolioProjectStatusAction(id: string) {
     return { success: false, error: "Failed to toggle status" };
   }
 }
+
+export async function getPortfolioProjectImagesAction(id: string) {
+  try {
+    // @ts-ignore
+    const images = await prisma.portfolioImage.findMany({
+      where: { portfolioProjectId: id },
+      orderBy: { sortOrder: 'asc' }
+    });
+    return { success: true, images };
+  } catch (error) {
+    console.error("Get portfolio project images error:", error);
+    return { success: false, error: "Failed to fetch images" };
+  }
+}
+
+export async function getAllPortfolioProjectsAction() {
+  try {
+    const projects = await prisma.portfolioProject.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    return { success: true, projects };
+  } catch (error) {
+    console.error("Get all portfolio projects error:", error);
+    return { success: false, error: "Failed to fetch projects" };
+  }
+}
+

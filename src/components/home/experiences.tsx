@@ -15,37 +15,37 @@ const occasionsList: Occasion[] = [
     title: "Corporate Outing",
     tag: "Corporate Travel",
     description: "Inspiring destinations and seamless planning to recharge your team, fostering creativity and fresh perspectives.",
-    image: "/occasions/occ_corporate.png",
+    image: "/occasions/corporate-outing.jpg",
   },
   {
     title: "Family Gathering",
     tag: "Bonding & Leisure",
     description: "Heartwarming reunions and multigenerational activities, creating cherished memories and fun for the whole family.",
-    image: "/occasions/occ_family.png",
+    image: "/occasions/team-building.jpeg",
   },
   {
     title: "Fun Team Building",
     tag: "Team Synergy",
     description: "Action-packed icebreakers, interactive games, and collaborative challenges designed to build trust and strengthen bonding.",
-    image: "/occasions/occ_teambuilding.png",
+    image: "/occasions/gala-dinner.jpeg",
   },
   {
     title: "Gala Event & Dinner",
     tag: "Milestones & Celebration",
     description: "Exquisite dining, beautiful thematic staging, and flawless hosting to celebrate your company milestones in style.",
-    image: "/occasions/occ_gala.png",
+    image: "/occasions/corporate-meeting.jpeg",
   },
   {
     title: "MICE & High Level Meeting",
     tag: "Executive & Business",
     description: "Professional settings, high-end audiovisual logistics, and smooth execution for executive conferences and corporate summits.",
-    image: "/occasions/occ_mice.png",
+    image: "/occasions/event-production.jpeg",
   },
   {
     title: "Event Show Management",
     tag: "Live Production",
     description: "Full-scale live production, choreography, lighting, directing, and stage synchronization for grand events and entertainment.",
-    image: "/occasions/occ_event.png",
+    image: "/occasions/study-tour.jpeg",
   },
 ];
 
@@ -63,7 +63,7 @@ export function ExperiencesSection({ dict }: { dict: any }) {
         setItemsPerView(1);
       }
     };
-    
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -117,47 +117,47 @@ export function ExperiencesSection({ dict }: { dict: any }) {
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {translatedOccasions.map((item) => (
-              <div 
-                key={item.title} 
+              <div
+                key={item.title}
                 className="flex-shrink-0 px-4"
                 style={{ width: `${100 / itemsPerView}%` }}
               >
                 <div
-                  className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer h-full"
+                  className="group relative w-full rounded-3xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer h-full flex flex-col bg-white border border-slate-100"
                 >
-                  {/* Background Image */}
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                  {/* Top Image */}
+                  <div className="relative w-full h-56 sm:h-64 flex-shrink-0 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </div>
 
-                  {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent transition-opacity duration-500 opacity-95 group-hover:opacity-100 z-0" />
+                  {/* Text Content */}
+                  <div className="p-6 flex flex-col flex-1 z-10 text-left">
+                    <div>
+                      <span 
+                        className="text-[10px] font-bold tracking-wider text-orange-600 uppercase mb-2 block"
+                      >
+                        {item.tag}
+                      </span>
 
-                  {/* Text Content Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 text-left z-10">
-                    <span 
-                      className="text-[10px] font-bold tracking-wider text-orange-400 uppercase mb-2 block"
-                      style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
-                    >
-                      {item.tag}
-                    </span>
+                      <h3 
+                        className="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight leading-tight"
+                      >
+                        {item.title}
+                        <span className="text-orange-500">.</span>
+                      </h3>
+                    </div>
 
-                    <h3 
-                      className="text-xl md:text-2xl font-extrabold text-white tracking-tight leading-tight transform group-hover:-translate-y-0.5 transition-transform duration-500"
-                      style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
-                    >
-                      {item.title}
-                      <span className="text-orange-500">.</span>
-                    </h3>
-
-                    <p 
-                      className="text-slate-200/95 text-xs md:text-sm font-medium mt-2 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}
-                    >
-                      {item.description}
-                    </p>
+                    <div className="mt-2 flex-1">
+                      <p 
+                        className="text-slate-600 text-left text-pretty text-xs md:text-sm font-medium leading-relaxed"
+                      >
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -172,11 +172,10 @@ export function ExperiencesSection({ dict }: { dict: any }) {
               <button
                 key={i}
                 onClick={() => goToPage(i)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === activeIndex 
-                    ? "bg-slate-700 w-8" 
+                className={`h-2.5 rounded-full transition-all duration-300 ${i === activeIndex
+                    ? "bg-slate-700 w-8"
                     : "bg-slate-300 hover:bg-slate-400 w-2.5"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}

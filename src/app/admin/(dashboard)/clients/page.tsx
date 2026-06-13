@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { ClientsDashboard } from "./clients-dashboard";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function AdminClientsPage() {
   const clients = await prisma.client.findMany({
@@ -18,3 +17,4 @@ export default async function AdminClientsPage() {
     </div>
   );
 }
+

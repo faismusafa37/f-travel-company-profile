@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { NewPackageForm } from "./new-form";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function NewPackagePage() {
   const destinations = await prisma.destination.findMany({
@@ -11,3 +10,4 @@ export default async function NewPackagePage() {
 
   return <NewPackageForm destinations={destinations} />;
 }
+

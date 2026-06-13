@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const galleryImageSchema = z.object({
   url: z.string().min(1, "Image URL is required"),
@@ -53,3 +52,4 @@ export async function deleteGalleryImageAction(id: string) {
     return { success: false, error: "Failed to delete gallery image" };
   }
 }
+

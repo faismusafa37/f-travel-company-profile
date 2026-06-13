@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { ShieldCheck, Award, Users2, FileText, CheckCircle, Scale, Briefcase, Lightbulb, Leaf } from "lucide-react";
 import { OurTeam } from "@/components/home/team";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+
+import prisma from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "About Us | F-Travel",
@@ -50,8 +50,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center justify-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <span className="text-sm font-semibold tracking-wider text-orange-500 uppercase">
+            {dict.about.hero.subtitle}
+          </span>
+          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold tracking-tight">
             {dict.about.hero.title}
           </h1>
         </div>

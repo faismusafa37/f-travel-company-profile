@@ -1,9 +1,8 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export async function getSettingsAction(): Promise<Record<string, string>> {
   try {
@@ -38,3 +37,4 @@ export async function saveSettingsAction(settings: Record<string, string>) {
     return { success: false, error: "Failed to save settings" };
   }
 }
+

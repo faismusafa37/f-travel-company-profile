@@ -21,7 +21,7 @@ interface BlogPostItem {
 }
 
 export function BlogTable({ initialPosts }: { initialPosts: BlogPostItem[] }) {
-  const router = useRouter();
+  const [posts, setPosts] = useState(initialPosts);
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
   const handleDelete = async (id: string) => {
@@ -31,7 +31,7 @@ export function BlogTable({ initialPosts }: { initialPosts: BlogPostItem[] }) {
       const res = await deleteBlogPostAction(id);
       if (res.success) {
         toast.success("Blog post deleted successfully");
-        router.refresh();
+        setPosts(prev => prev.filter(p => p.id !== id));
       } else {
         toast.error(res.error || "Failed to delete blog post");
       }
@@ -48,7 +48,7 @@ export function BlogTable({ initialPosts }: { initialPosts: BlogPostItem[] }) {
       const res = await toggleBlogPostStatusAction(id);
       if (res.success) {
         toast.success(`Blog post status updated to ${res.status}`);
-        router.refresh();
+        setPosts(prev => prev.map(p => p.id === id ? { ...p, status: res.status as string } : p));
       } else {
         toast.error(res.error || "Failed to toggle status");
       }
@@ -72,14 +72,14 @@ export function BlogTable({ initialPosts }: { initialPosts: BlogPostItem[] }) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {initialPosts.length === 0 ? (
+          {posts.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} className="text-center py-8 text-slate-500">
                 No blog posts found. Create one to get started.
               </TableCell>
             </TableRow>
           ) : (
-            initialPosts.map((post) => (
+            posts.map((post) => (
               <TableRow key={post.id} className={isLoading === post.id ? "opacity-50 pointer-events-none" : ""}>
                 <TableCell className="font-medium text-slate-900 line-clamp-1 max-w-[250px]">{post.title}</TableCell>
                 <TableCell>{post.category?.name || "—"}</TableCell>

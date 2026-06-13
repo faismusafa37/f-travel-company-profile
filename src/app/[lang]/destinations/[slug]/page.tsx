@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+
 import { notFound } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";

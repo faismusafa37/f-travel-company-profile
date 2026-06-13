@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useDeferredValue, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +14,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { Trash2, Edit, Loader2, Search, ArrowLeft, ArrowRight, Upload, Star } from "lucide-react";
-import { createPortfolioProjectAction, updatePortfolioProjectAction, deletePortfolioProjectAction, togglePortfolioProjectStatusAction } from "@/app/actions/portfolio";
+import { createPortfolioProjectAction, updatePortfolioProjectAction, deletePortfolioProjectAction, togglePortfolioProjectStatusAction, getPortfolioProjectImagesAction, getAllPortfolioProjectsAction } from "@/app/actions/portfolio";
 import { uploadImageAction } from "@/app/actions/upload";
 
 const portfolioProjectSchema = z.object({
@@ -46,19 +46,41 @@ interface ProjectItem {
   images?: { id?: string; url: string; caption?: string | null; sortOrder?: number }[];
 }
 
-export function PortfolioDashboard({ initialProjects }: { initialProjects: ProjectItem[] }) {
+export function PortfolioDashboard({ initialProjects = [] }: { initialProjects?: ProjectItem[] }) {
   const router = useRouter();
+  const [projects, setProjects] = useState<ProjectItem[]>(initialProjects);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(initialProjects.length === 0);
   const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isActionLoading, setIsActionLoading] = useState<string | null>(null);
   const [uploadedImages, setUploadedImages] = useState<{url: string, caption?: string, sortOrder: number}[]>([]);
   const [isUploading, setIsUploading] = useState(false);
 
+  // Load projects purely on client to bypass RSC payload bottleneck
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const res = await getAllPortfolioProjectsAction();
+        if (res.success && res.projects) {
+          // @ts-ignore
+          setProjects(res.projects);
+        }
+      } catch (e) {
+        console.error("Failed to load projects", e);
+      } finally {
+        setIsLoadingProjects(false);
+      }
+    };
+    if (initialProjects.length === 0) {
+      loadProjects();
+    }
+  }, [initialProjects.length]);
+
   // Search, Filter, Pagination state
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const {
     register,
@@ -126,10 +148,11 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
     else if (lowercase.includes("outing")) setValue("activity", "Corporate Outing");
   };
 
-  const handleEdit = (p: ProjectItem) => {
+  const handleEdit = async (p: ProjectItem) => {
     setEditingProject(p);
-    const initialImages = p.images?.map(img => ({ url: img.url, caption: img.caption || undefined, sortOrder: img.sortOrder || 0 })) || [];
-    setUploadedImages(initialImages);
+    
+    // Fast initial render without images
+    setUploadedImages([]);
     reset({
       client: p.client,
       activity: p.activity,
@@ -138,8 +161,24 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       original: p.original,
       year: p.year,
       status: p.status as any,
-      images: initialImages,
+      images: [],
     });
+
+    // Fetch images asynchronously to keep it fast
+    try {
+      const res = await getPortfolioProjectImagesAction(p.id);
+      if (res.success && res.images) {
+        const fetchedImages = res.images.map((img: any) => ({ 
+          url: img.url, 
+          caption: img.caption || undefined, 
+          sortOrder: img.sortOrder || 0 
+        }));
+        setUploadedImages(fetchedImages);
+        setValue("images", fetchedImages);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleCancelEdit = () => {
@@ -216,7 +255,12 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       if (res.success) {
         toast.success(editingProject ? "Project updated successfully" : "Project created successfully");
         handleCancelEdit();
-        router.refresh();
+        // Refresh local state to avoid slow router.refresh()
+        const newRes = await getAllPortfolioProjectsAction();
+        if (newRes.success && newRes.projects) {
+          // @ts-ignore
+          setProjects(newRes.projects);
+        }
       } else {
         toast.error(res.error || "Failed to save project");
       }
@@ -234,7 +278,7 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       const res = await deletePortfolioProjectAction(id);
       if (res.success) {
         toast.success("Project deleted successfully");
-        router.refresh();
+        setProjects(prev => prev.filter(p => p.id !== id));
       } else {
         toast.error(res.error || "Failed to delete project");
       }
@@ -251,7 +295,7 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
       const res = await togglePortfolioProjectStatusAction(id);
       if (res.success) {
         toast.success(`Project status updated to ${res.status}`);
-        router.refresh();
+        setProjects(prev => prev.map(p => p.id === id ? { ...p, status: res.status as string } : p));
       } else {
         toast.error(res.error || "Failed to toggle status");
       }
@@ -263,12 +307,14 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
   };
 
   // Filtered projects
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
   const filteredProjects = useMemo(() => {
-    return initialProjects.filter(p => {
+    return projects.filter(p => {
       const matchesSearch = 
-        p.original.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.location.toLowerCase().includes(searchQuery.toLowerCase());
+        p.original.toLowerCase().includes(deferredSearchQuery.toLowerCase()) ||
+        p.client.toLowerCase().includes(deferredSearchQuery.toLowerCase()) ||
+        p.location.toLowerCase().includes(deferredSearchQuery.toLowerCase());
       
       const matchesCategory = 
         categoryFilter === "All" || p.category === categoryFilter;
@@ -293,9 +339,9 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
 
   const uniqueCategories = useMemo(() => {
     const cats = new Set<string>();
-    initialProjects.forEach(p => cats.add(p.category));
+    projects.forEach(p => cats.add(p.category));
     return Array.from(cats);
-  }, [initialProjects]);
+  }, [projects]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -483,13 +529,31 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
               <SelectItem value="Meeting & Conference">Meeting & Conference</SelectItem>
             </SelectContent>
           </Select>
+          <Select 
+            defaultValue="10"
+            value={itemsPerPage.toString()} 
+            onValueChange={(val) => {
+              setItemsPerPage(Number(val));
+              setCurrentPage(1);
+            }}
+          >
+            <SelectTrigger className="w-[120px]">
+              <SelectValue placeholder="10 / page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="5">5 / page</SelectItem>
+              <SelectItem value="10">10 / page</SelectItem>
+              <SelectItem value="25">25 / page</SelectItem>
+              <SelectItem value="50">50 / page</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <Card className="border-0 shadow-sm overflow-hidden">
           <CardContent className="p-0">
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto overflow-y-auto max-h-[500px] w-full relative">
               <Table>
-                <TableHeader className="bg-slate-50">
+                <TableHeader className="bg-slate-50 sticky top-0 z-10 shadow-sm">
                   <TableRow>
                     <TableHead>Activity (Full)</TableHead>
                     <TableHead>Category</TableHead>
@@ -499,7 +563,16 @@ export function PortfolioDashboard({ initialProjects }: { initialProjects: Proje
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {paginatedProjects.length === 0 ? (
+                  {isLoadingProjects ? (
+                    <TableRow>
+                      <TableCell colSpan={5} className="text-center py-8 text-slate-500">
+                        <div className="flex items-center justify-center">
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Loading projects...
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ) : paginatedProjects.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={5} className="text-center py-8 text-slate-500">
                         No outing records found.

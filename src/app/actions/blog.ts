@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 const blogPostSchema = z.object({
   title: z.string().min(2, "Title must be at least 2 characters"),
@@ -153,3 +152,4 @@ export async function toggleBlogPostStatusAction(id: string) {
     return { success: false, error: "Failed to toggle status" };
   }
 }
+
