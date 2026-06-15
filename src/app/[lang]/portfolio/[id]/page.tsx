@@ -6,6 +6,42 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
 
 import prisma from "@/lib/prisma";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const project = await prisma.portfolioProject.findUnique({
+    where: { id },
+    include: { images: { take: 1 } },
+  });
+
+  if (!project) {
+    return {
+      title: "Portfolio Not Found",
+    };
+  }
+
+  const title = `${project.client} Outing | F-Travel Portfolio`;
+  const description = `${project.client} outing ${project.location} (${project.year}) - ${project.activity}. Organisasi acara premium oleh F-Travel.`;
+  const image = project.images.length > 0 ? project.images[0].url : undefined;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "website",
+      images: image ? [{ url: image }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: image ? [image] : [],
+    },
+  };
+}
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ lang: string, id: string }> }) {
   const { lang, id } = await params;

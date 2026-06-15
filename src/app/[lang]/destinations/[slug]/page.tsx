@@ -9,6 +9,40 @@ import prisma from "@/lib/prisma";
 
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string, lang: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const dest = await prisma.destination.findUnique({
+    where: { slug },
+  });
+
+  if (!dest) {
+    return {
+      title: "Destination Not Found",
+    };
+  }
+
+  const title = `Explore ${dest.title} | Premium Travel Experience`;
+  const description = dest.description;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "website",
+      images: dest.featuredImage ? [{ url: dest.featuredImage }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: dest.featuredImage ? [dest.featuredImage] : [],
+    },
+  };
+}
 
 export default async function DestinationDetailPage({ params }: { params: Promise<{ slug: string, lang: string }> }) {
   const { slug, lang } = await params;

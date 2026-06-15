@@ -1,22 +1,7 @@
--- Script to add missing PortfolioProject and PortfolioImage tables to MySQL production database
+-- Script to add ONLY the missing PortfolioImage table to MySQL production database
+-- (Since PortfolioProject table already exists with data)
 
--- 1. Create PortfolioProject table
-CREATE TABLE IF NOT EXISTS `PortfolioProject` (
-    `id` VARCHAR(191) NOT NULL,
-    `client` VARCHAR(191) NOT NULL,
-    `activity` VARCHAR(191) NOT NULL,
-    `location` VARCHAR(191) NOT NULL,
-    `category` VARCHAR(191) NOT NULL,
-    `original` VARCHAR(191) NOT NULL,
-    `year` VARCHAR(191) NOT NULL,
-    `status` VARCHAR(191) NOT NULL DEFAULT 'PUBLISHED',
-    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updatedAt` DATETIME(3) NOT NULL,
-
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- 2. Create PortfolioImage table
+-- 1. Create PortfolioImage table
 CREATE TABLE IF NOT EXISTS `PortfolioImage` (
     `id` VARCHAR(191) NOT NULL,
     `url` VARCHAR(191) NOT NULL,
@@ -29,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `PortfolioImage` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- 3. Add foreign key relation
+-- 2. Add foreign key relation to the existing PortfolioProject table
 ALTER TABLE `PortfolioImage` 
     ADD CONSTRAINT `PortfolioImage_portfolioProjectId_fkey` 
     FOREIGN KEY (`portfolioProjectId`) REFERENCES `PortfolioProject`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

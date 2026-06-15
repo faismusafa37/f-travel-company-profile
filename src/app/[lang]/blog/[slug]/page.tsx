@@ -2,11 +2,45 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Calendar, User } from "lucide-react";
-
 import prisma from "@/lib/prisma";
-
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Locale } from "@/i18n/i18n-config";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string, lang: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await prisma.blogPost.findUnique({
+    where: { slug },
+  });
+
+  if (!post) {
+    return {
+      title: "Blog Not Found",
+    };
+  }
+
+  const title = post.seoTitle || post.title;
+  const description = post.seoDescription || post.excerpt;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "article",
+      publishedTime: post.createdAt.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
+      images: post.featuredImage ? [{ url: post.featuredImage }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: post.featuredImage ? [post.featuredImage] : [],
+    },
+  };
+}
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string, lang: string }> }) {
   const { slug, lang } = await params;
@@ -21,8 +55,35 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.featuredImage || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop",
+    "datePublished": post.createdAt.toISOString(),
+    "dateModified": post.updatedAt.toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "F-Travel",
+      "url": "https://f-travel.id"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "F-Travel (PT Dua Rasi Nusantara)",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://f-travel.id/logo.png"
+      }
+    }
+  };
+
   return (
     <article className="min-h-screen pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div 
         className="h-[60vh] min-h-[400px] bg-cover bg-center relative"
         style={{ backgroundImage: `url('${post.featuredImage || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop'}')` }}

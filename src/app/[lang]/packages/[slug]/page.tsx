@@ -5,6 +5,40 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 
 import prisma from "@/lib/prisma";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const pkg = await prisma.travelPackage.findUnique({
+    where: { slug },
+  });
+
+  if (!pkg) {
+    return {
+      title: "Package Not Found",
+    };
+  }
+
+  const title = `${pkg.title} | F-Travel Tour Package`;
+  const description = pkg.shortDescription;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "website",
+      images: pkg.featuredImage ? [{ url: pkg.featuredImage }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: pkg.featuredImage ? [pkg.featuredImage] : [],
+    },
+  };
+}
 
 export default async function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -21,8 +55,32 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
   const included = pkg.included ? JSON.parse(pkg.included) : [];
   const excluded = pkg.excluded ? JSON.parse(pkg.excluded) : [];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Trip",
+    "name": pkg.title,
+    "description": pkg.shortDescription,
+    "image": pkg.featuredImage || "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "offers": {
+      "@type": "Offer",
+      "price": Number(pkg.price),
+      "priceCurrency": "IDR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": pkg.createdAt.toISOString()
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "F-Travel (PT Dua Rasi Nusantara)",
+      "url": "https://f-travel.id"
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <div 
         className="h-[50vh] min-h-[400px] bg-cover bg-center relative"

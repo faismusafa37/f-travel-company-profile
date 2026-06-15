@@ -14,8 +14,62 @@ const inter = Inter({ subsets: ["latin"] });
 import prisma from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "F Travel #FindYourExperience",
-  description: "Discover the world with premium travel experiences tailored just for you.",
+  metadataBase: new URL("https://f-travel.id"),
+  title: {
+    default: "F-Travel | Trip Organizer & Travel Consultant",
+    template: "%s | F-Travel Trip Organizer",
+  },
+  description: "F-Travel (PT Dua Rasi Nusantara) adalah penyedia jasa Premium Trip Organizer, Travel Consultant, dan Event Planner profesional yang berbasis di Yogyakarta dan melayani perjalanan ke seluruh Indonesia.",
+  keywords: [
+    "F-Travel",
+    "PT Dua Rasi Nusantara",
+    "Trip Organizer",
+    "Travel Consultant",
+    "Event Planner",
+    "Corporate Outing Yogyakarta",
+    "Corporate Outing Indonesia",
+    "Team Building",
+    "Family Gathering",
+    "Paket Wisata Yogyakarta",
+    "Paket Liburan Indonesia",
+    "F-Travel Outing",
+  ],
+  authors: [{ name: "F-Travel Team", url: "https://f-travel.id" }],
+  creator: "F-Travel Organizer",
+  publisher: "PT Dua Rasi Nusantara",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://f-travel.id",
+    siteName: "F-Travel",
+    title: "F-Travel | Trip Organizer & Travel Consultant",
+    description: "Penyedia jasa Premium Trip Organizer, Travel Consultant, dan Event Planner profesional untuk outbound, gathering, dan outing perusahaan.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "F-Travel - Find Your Experience",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "F-Travel | Trip Organizer & Travel Consultant",
+    description: "Penyedia jasa Premium Trip Organizer, Travel Consultant, dan Event Planner profesional untuk outbound, gathering, dan outing perusahaan.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default async function RootLayout({
