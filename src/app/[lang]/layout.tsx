@@ -89,9 +89,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body
-        className={`${inter.className} min-h-screen flex flex-col`}
-      >
+      <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KSYJD05FG2"
           strategy="afterInteractive"
@@ -105,6 +103,10 @@ export default async function RootLayout({
             gtag('config', 'G-KSYJD05FG2');
           `}
         </Script>
+      </head>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col`}
+      >
         <Providers>
           <Navbar lang={lang as "id" | "en"} dict={await getDictionary(lang as "id" | "en").then(d => d.navbar)} />
           <main className="flex-1">
