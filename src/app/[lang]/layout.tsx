@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import { Navbar } from "@/components/layout/navbar";
@@ -91,6 +92,19 @@ export default async function RootLayout({
       <body
         className={`${inter.className} min-h-screen flex flex-col`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KSYJD05FG2"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KSYJD05FG2');
+          `}
+        </Script>
         <Providers>
           <Navbar lang={lang as "id" | "en"} dict={await getDictionary(lang as "id" | "en").then(d => d.navbar)} />
           <main className="flex-1">
