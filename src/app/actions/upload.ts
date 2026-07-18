@@ -1,6 +1,6 @@
 "use server";
 
-import { uploadImage } from "@/lib/s3";
+import { uploadImage } from "@/lib/storage";
 
 export async function uploadImageAction(formData: FormData) {
   try {
