@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
-
-const prisma = new PrismaClient()
+import prisma from '../src/lib/prisma'
 
 const rawProjects = [
   "PT. Equine Global Jakarta outing ke Bali",

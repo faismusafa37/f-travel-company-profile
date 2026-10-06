@@ -3,7 +3,9 @@
 
 generator client {
   provider = "prisma-client-js"
-  engineType = "binary"
+  // Rust-free client: queries run in-process via the mariadb driver adapter,
+  // so no separate query-engine process that Hostinger can kill.
+  engineType = "client"
 }
 
 datasource db {
