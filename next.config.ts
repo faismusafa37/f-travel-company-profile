@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["@prisma/client", "@prisma/adapter-mariadb", "mariadb"],
+  // Hostinger deploys only traced files, and Prisma loads its query compiler
+  // .wasm via a dynamic path the tracer can't see, so include it explicitly.
+  outputFileTracingIncludes: {
+    "/*": ["./node_modules/.prisma/client/query_compiler_bg.wasm"],
+  },
   images: {
     remotePatterns: [
       {

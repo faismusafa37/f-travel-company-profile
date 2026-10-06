@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && node scripts/prisma-embed-wasm.js && npx prisma db push --skip-generate && next build --webpack",
-    "postinstall": "prisma generate && node scripts/prisma-embed-wasm.js",
+    "build": "npx prisma generate && npx prisma db push && next build --webpack",
     "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "lint": "eslint"
   },
